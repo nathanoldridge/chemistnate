@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChemistNate - 7. Chemical Bonding &amp; Molecular Geometry</title>
+
+    <!-- KaTeX for rendering chemical formulas and equations -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ]
+        });">
+    </script>
+
+    <style>
+        /* Classic Lamar University / Paul's Notes color palette and typography */
+        body {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Layout Container */
+        #container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Left Sidebar Navigation */
+        #sidebar {
+            width: 260px;
+            background-color: #f4f4f4;
+            border-right: 1px solid #cccccc;
+            padding: 20px 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        #sidebar h2 {
+            font-size: 16px;
+            color: #8b0000; /* Academic maroon accent */
+            margin-top: 0;
+            border-bottom: 2px solid #8b0000;
+            padding-bottom: 5px;
+        }
+
+        #sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        #sidebar li {
+            margin-bottom: 8px;
+        }
+
+        #sidebar li ul {
+            padding-left: 15px;
+            margin-top: 5px;
+        }
+
+        #sidebar a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        #sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        #sidebar .active {
+            font-weight: bold;
+            color: #000000;
+        }
+
+        /* Main Content Pane */
+        #content {
+            flex-grow: 1;
+            padding: 30px 40px;
+            max-width: 800px;
+            box-sizing: border-box;
+        }
+
+        /* Header / Breadcrumbs */
+        .breadcrumbs {
+            font-size: 13px;
+            color: #555555;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumbs a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        h1 {
+            font-family: "Georgia", Times, serif;
+            color: #8b0000;
+            font-size: 28px;
+            margin-top: 0;
+            border-bottom: 1px solid #dddddd;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-family: "Georgia", Times, serif;
+            color: #333333;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+
+        /* Course Directory Grid / List */
+        .course-card {
+            background-color: #f9f9f9;
+            border: 1px solid #cccccc;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+
+        .course-card h3 {
+            font-family: "Georgia", Times, serif;
+            color: #004b87;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .course-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .course-card li {
+            margin-bottom: 5px;
+        }
+
+        /* Callout Box */
+        .notice-box {
+            background-color: #fffdf0;
+            border-left: 4px solid #d4af37;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 50px;
+            border-top: 1px solid #cccccc;
+            padding-top: 15px;
+            font-size: 12px;
+            color: #666666;
+            text-align: center;
+        }
+            /* Worked Example Callout */
+        .example {
+            background-color: #f9f9f9;
+            border-left: 4px solid #004b87;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+        .example strong:first-child { color: #004b87; }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <!-- Left Navigation Sidebar -->
+    <div id="sidebar">
+        <h2>ChemistNate</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sch4u.html">SCH4U — Grade 12 Chemistry (Ontario)</a></li>
+            <li><a href="#">General Chemistry I</a>
+                <ul>
+                    <li><a href="stoichiometry.html">1. Stoichiometry</a></li>
+                    <li><a href="aqueous-reactions.html">2. Aqueous Reactions</a></li>
+                    <li><a href="#">3. Chemical Equations</a>
+                        <ul>
+                            <li><a href="balancing-equations.html">3.1 Balancing Equations</a></li>
+                            <li><a href="synthesis-reactions.html">3.2 Synthesis Reactions</a></li>
+                            <li><a href="decomposition-reactions.html">3.3 Decomposition Reactions</a></li>
+                            <li><a href="combustion-reactions.html">3.4 Combustion Reactions</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="thermochemistry.html">4. Thermochemistry</a></li>
+                    <li><a href="atomic-structure.html">5. Atomic Structure</a></li>
+                    <li><a href="electronic-structure.html">6. Electronic Structure &amp; Periodic Trends</a></li>
+                    <li><a href="chemical-bonding.html" class="active">7. Chemical Bonding &amp; Molecular Geometry</a></li>
+                    <li><a href="gases.html">8. Gases</a></li>
+                    <li><a href="liquids-solids.html">9. Liquids, Solids &amp; Intermolecular Forces</a></li>
+                    <li><a href="solutions-colligative.html">10. Solutions &amp; Colligative Properties</a></li>
+                    <li><a href="atmospheric-chemistry.html">11. Gases &amp; Atmospheric Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">General Chemistry II</a>
+                <ul>
+                    <li><a href="kinetics.html">1. Reaction Kinetics &amp; Rate Laws</a></li>
+                    <li><a href="equilibrium.html">2. Chemical Equilibrium</a></li>
+                    <li><a href="acids-bases.html">3. Acids, Bases, and Buffers</a></li>
+                    <li><a href="electrochemistry.html">4. Electrochemistry &amp; Redox Cells</a></li>
+                    <li><a href="thermodynamics.html">5. Thermodynamics</a></li>
+                    <li><a href="solubility-ksp.html">6. Solubility &amp; the Solubility Product</a></li>
+                    <li><a href="nuclear-chemistry.html">7. Nuclear Chemistry</a></li>
+                    <li><a href="coordination-chemistry.html">8. Coordination Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry I</a>
+                <ul>
+                    <li><a href="nomenclature.html">1. Nomenclature &amp; Functional Groups</a></li>
+                    <li><a href="stereochemistry.html">2. Stereochemistry &amp; Isomerism</a></li>
+                    <li><a href="substitution-elimination.html">3. Substitution and Elimination</a></li>
+                    <li><a href="organic-structure.html">4. Structure &amp; Bonding in Organic Molecules</a></li>
+                    <li><a href="alkenes.html">5. Alkenes</a></li>
+                    <li><a href="alkynes.html">6. Alkynes</a></li>
+                    <li><a href="alcohols-ethers.html">7. Alcohols &amp; Ethers</a></li>
+                    <li><a href="spectroscopy.html">8. Spectroscopy</a></li>
+                    <li><a href="polymers.html">9. Polymers</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry II</a>
+                <ul>
+                    <li><a href="aromatic-chemistry.html">1. Aromatic Chemistry</a></li>
+                    <li><a href="aldehydes-ketones.html">2. Aldehydes &amp; Ketones</a></li>
+                    <li><a href="carboxylic-acids.html">3. Carboxylic Acids &amp; Derivatives</a></li>
+                    <li><a href="enolates-aldol.html">4. Enolates &amp; the Aldol Reaction</a></li>
+                    <li><a href="amines.html">5. Amines</a></li>
+                    <li><a href="conjugated-systems.html">6. Conjugated Systems &amp; Diels-Alder</a></li>
+                    <li><a href="biomolecules.html">7. Biomolecules</a></li>
+                    <li><a href="synthesis-strategy.html">8. Synthesis Strategy &amp; Retrosynthesis</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="content">
+        <div class="breadcrumbs">
+            Home / General Chemistry I / 7. Chemical Bonding &amp; Molecular Geometry
+        </div>
+
+        <h1>7. Chemical Bonding &amp; Molecular Geometry</h1>
+
+
+        <p>Atoms bond to reach a stable electron arrangement — usually an octet. The type of bond, and the shape the bonds take, decide a molecule's properties.</p>
+
+        <h2>Ionic vs Covalent Bonding</h2>
+        <p><strong>Ionic</strong> bonds transfer electrons (metal + nonmetal, e.g., NaCl). <strong>Covalent</strong> bonds share them (two nonmetals, e.g., H<sub>2</sub>O). A large electronegativity difference favours ionic character; a small one favours covalent.</p>
+
+        <h2>Lewis Structures and Formal Charge</h2>
+        <p>Count valence electrons, draw single bonds, complete octets, and use multiple bonds where electrons remain. Formal charge checks the best structure: $$\text{Formal charge} = \text{valence e}^- - (\text{nonbonding e}^- + \tfrac{1}{2}\text{bonding e}^-)$$</p>
+        <div class="example">
+            <strong>Example:</strong> $\text{CO}_2$: 16 valence electrons, $\text{O=C=O}$, every atom formal charge 0 — the correct structure. In carbon monoxide, the triple-bonded structure gives C −1 and O +1, the best available.
+        </div>
+
+        <h2>VSEPR and Molecular Shape</h2>
+        <p>Electron groups repel and spread out: 2 groups = linear, 3 = trigonal planar, 4 = tetrahedral. Lone pairs compress the angles and change the <em>shape</em> even when the electron geometry stays the same.</p>
+        <div class="example">
+            <strong>Example:</strong> $\text{NH}_3$ has 4 electron groups (3 bonds + 1 lone pair): tetrahedral electron geometry, <strong>trigonal pyramidal</strong> shape, bond angle ≈ 107°. $\text{H}_2\text{O}$ is bent (≈ 104.5°) and polar, while $\text{CO}_2$ is linear and nonpolar — shape decides polarity.
+        </div>
+
+        <h2>Hybridization</h2>
+        <p>Orbitals mix to match the geometry: sp<sup>3</sup> (tetrahedral, e.g., CH<sub>4</sub>), sp<sup>2</sup> (trigonal planar, e.g., C<sub>2</sub>H<sub>4</sub>), sp (linear, e.g., C<sub>2</sub>H<sub>2</sub>).</p>
+
+        <h2>Practice Problems</h2>
+        <ol>
+            <li>Draw the Lewis structure of NH<sub>3</sub> and name its molecular shape.</li>
+            <li>Which is polar: CO<sub>2</sub> or H<sub>2</sub>O? Explain.</li>
+            <li>What is the hybridization of carbon in formaldehyde, CH<sub>2</sub>O?</li>
+            <li>What is the bond angle in BF<sub>3</sub>?</li>
+        </ol>
+        <p><strong>Answers:</strong> 1. Trigonal pyramidal &nbsp; 2. H<sub>2</sub>O — bent, so its bond dipoles don't cancel; CO<sub>2</sub> is linear and symmetric &nbsp; 3. sp<sup>2</sup> &nbsp; 4. 120° (trigonal planar)</p>
+        <div class="site-footer">
+            ChemistNate &bull; Released to the <strong>Public Domain</strong>. Feel free to use, share, and build upon these educational resources freely.
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

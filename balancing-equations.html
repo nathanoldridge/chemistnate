@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChemistNate - 3.1 Balancing Equations</title>
+
+    <!-- KaTeX for rendering chemical formulas and equations -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ]
+        });">
+    </script>
+
+    <style>
+        /* Classic Lamar University / Paul's Notes color palette and typography */
+        body {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Layout Container */
+        #container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Left Sidebar Navigation */
+        #sidebar {
+            width: 260px;
+            background-color: #f4f4f4;
+            border-right: 1px solid #cccccc;
+            padding: 20px 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        #sidebar h2 {
+            font-size: 16px;
+            color: #8b0000; /* Academic maroon accent */
+            margin-top: 0;
+            border-bottom: 2px solid #8b0000;
+            padding-bottom: 5px;
+        }
+
+        #sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        #sidebar li {
+            margin-bottom: 8px;
+        }
+
+        #sidebar li ul {
+            padding-left: 15px;
+            margin-top: 5px;
+        }
+
+        #sidebar a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        #sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        #sidebar .active {
+            font-weight: bold;
+            color: #000000;
+        }
+
+        /* Main Content Pane */
+        #content {
+            flex-grow: 1;
+            padding: 30px 40px;
+            max-width: 800px;
+            box-sizing: border-box;
+        }
+
+        /* Header / Breadcrumbs */
+        .breadcrumbs {
+            font-size: 13px;
+            color: #555555;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumbs a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        h1 {
+            font-family: "Georgia", Times, serif;
+            color: #8b0000;
+            font-size: 28px;
+            margin-top: 0;
+            border-bottom: 1px solid #dddddd;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-family: "Georgia", Times, serif;
+            color: #333333;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+
+        /* Course Directory Grid / List */
+        .course-card {
+            background-color: #f9f9f9;
+            border: 1px solid #cccccc;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+
+        .course-card h3 {
+            font-family: "Georgia", Times, serif;
+            color: #004b87;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .course-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .course-card li {
+            margin-bottom: 5px;
+        }
+
+        /* Callout Box */
+        .notice-box {
+            background-color: #fffdf0;
+            border-left: 4px solid #d4af37;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 50px;
+            border-top: 1px solid #cccccc;
+            padding-top: 15px;
+            font-size: 12px;
+            color: #666666;
+            text-align: center;
+        }
+            /* Worked Example Callout */
+        .example {
+            background-color: #f9f9f9;
+            border-left: 4px solid #004b87;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+        .example strong:first-child { color: #004b87; }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <!-- Left Navigation Sidebar -->
+    <div id="sidebar">
+        <h2>ChemistNate</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sch4u.html">SCH4U — Grade 12 Chemistry (Ontario)</a></li>
+            <li><a href="#">General Chemistry I</a>
+                <ul>
+                    <li><a href="stoichiometry.html">1. Stoichiometry</a></li>
+                    <li><a href="aqueous-reactions.html">2. Aqueous Reactions</a></li>
+                    <li><a href="#">3. Chemical Equations</a>
+                        <ul>
+                            <li><a href="balancing-equations.html" class="active">3.1 Balancing Equations</a></li>
+                            <li><a href="synthesis-reactions.html">3.2 Synthesis Reactions</a></li>
+                            <li><a href="decomposition-reactions.html">3.3 Decomposition Reactions</a></li>
+                            <li><a href="combustion-reactions.html">3.4 Combustion Reactions</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="thermochemistry.html">4. Thermochemistry</a></li>
+                    <li><a href="atomic-structure.html">5. Atomic Structure</a></li>
+                    <li><a href="electronic-structure.html">6. Electronic Structure &amp; Periodic Trends</a></li>
+                    <li><a href="chemical-bonding.html">7. Chemical Bonding &amp; Molecular Geometry</a></li>
+                    <li><a href="gases.html">8. Gases</a></li>
+                    <li><a href="liquids-solids.html">9. Liquids, Solids &amp; Intermolecular Forces</a></li>
+                    <li><a href="solutions-colligative.html">10. Solutions &amp; Colligative Properties</a></li>
+                    <li><a href="atmospheric-chemistry.html">11. Gases &amp; Atmospheric Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">General Chemistry II</a>
+                <ul>
+                    <li><a href="kinetics.html">1. Reaction Kinetics &amp; Rate Laws</a></li>
+                    <li><a href="equilibrium.html">2. Chemical Equilibrium</a></li>
+                    <li><a href="acids-bases.html">3. Acids, Bases, and Buffers</a></li>
+                    <li><a href="electrochemistry.html">4. Electrochemistry &amp; Redox Cells</a></li>
+                    <li><a href="thermodynamics.html">5. Thermodynamics</a></li>
+                    <li><a href="solubility-ksp.html">6. Solubility &amp; the Solubility Product</a></li>
+                    <li><a href="nuclear-chemistry.html">7. Nuclear Chemistry</a></li>
+                    <li><a href="coordination-chemistry.html">8. Coordination Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry I</a>
+                <ul>
+                    <li><a href="nomenclature.html">1. Nomenclature &amp; Functional Groups</a></li>
+                    <li><a href="stereochemistry.html">2. Stereochemistry &amp; Isomerism</a></li>
+                    <li><a href="substitution-elimination.html">3. Substitution and Elimination</a></li>
+                    <li><a href="organic-structure.html">4. Structure &amp; Bonding in Organic Molecules</a></li>
+                    <li><a href="alkenes.html">5. Alkenes</a></li>
+                    <li><a href="alkynes.html">6. Alkynes</a></li>
+                    <li><a href="alcohols-ethers.html">7. Alcohols &amp; Ethers</a></li>
+                    <li><a href="spectroscopy.html">8. Spectroscopy</a></li>
+                    <li><a href="polymers.html">9. Polymers</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry II</a>
+                <ul>
+                    <li><a href="aromatic-chemistry.html">1. Aromatic Chemistry</a></li>
+                    <li><a href="aldehydes-ketones.html">2. Aldehydes &amp; Ketones</a></li>
+                    <li><a href="carboxylic-acids.html">3. Carboxylic Acids &amp; Derivatives</a></li>
+                    <li><a href="enolates-aldol.html">4. Enolates &amp; the Aldol Reaction</a></li>
+                    <li><a href="amines.html">5. Amines</a></li>
+                    <li><a href="conjugated-systems.html">6. Conjugated Systems &amp; Diels-Alder</a></li>
+                    <li><a href="biomolecules.html">7. Biomolecules</a></li>
+                    <li><a href="synthesis-strategy.html">8. Synthesis Strategy &amp; Retrosynthesis</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="content">
+        <div class="breadcrumbs">
+            Home / General Chemistry I / 3. Chemical Equations / 3.1 Balancing Equations
+        </div>
+
+        <h1>3.1 Balancing Equations</h1>
+
+
+        <p>The Law of Conservation of Mass requires that atoms are neither created nor destroyed — so every balanced equation has the same number of each atom on both sides. Coefficients adjust molecule counts; subscripts are never changed, because that changes the substance.</p>
+
+        <div class="notice-box">
+            <strong>Golden rule:</strong> change coefficients, never subscripts. Balance metals first, then nonmetals, then hydrogen, then oxygen last.
+        </div>
+
+        <h2>Balancing by Inspection</h2>
+        <div class="example">
+            <strong>Example:</strong> Balance $\text{C}_3\text{H}_8 + \text{O}_2 \rightarrow \text{CO}_2 + \text{H}_2\text{O}$.
+            <br>Balance C: 3 $\text{CO}_2$. Balance H: 4 $\text{H}_2\text{O}$. Count O on the right: $3(2) + 4(1) = 10$, so 5 $\text{O}_2$.
+            $$\text{C}_3\text{H}_8 + 5\,\text{O}_2 \rightarrow 3\,\text{CO}_2 + 4\,\text{H}_2\text{O}$$
+        </div>
+        <div class="example">
+            <strong>Example:</strong> $\text{Fe}_2\text{O}_3 + \text{CO} \rightarrow \text{Fe} + \text{CO}_2$ — treat $\text{CO}_3$-free, balance Fe first:
+            $$\text{Fe}_2\text{O}_3 + 3\,\text{CO} \rightarrow 2\,\text{Fe} + 3\,\text{CO}_2$$
+        </div>
+
+        <h2>Balancing Redox Half-Reactions (Acidic Solution)</h2>
+        <p>Split the reaction into half-reactions, balance atoms (O with $\text{H}_2\text{O}$, H with $\text{H}^+$), then balance charge with electrons, then combine.</p>
+        <div class="example">
+            <strong>Example:</strong> $\text{MnO}_4^- + \text{Fe}^{2+} \rightarrow \text{Mn}^{2+} + \text{Fe}^{3+}$
+            <br>Reduction: $\text{MnO}_4^- + 8\,\text{H}^+ + 5e^- \rightarrow \text{Mn}^{2+} + 4\,\text{H}_2\text{O}$
+            <br>Oxidation: $\text{Fe}^{2+} \rightarrow \text{Fe}^{3+} + e^-$ (×5)
+            $$\text{MnO}_4^- + 8\,\text{H}^+ + 5\,\text{Fe}^{2+} \rightarrow \text{Mn}^{2+} + 4\,\text{H}_2\text{O} + 5\,\text{Fe}^{3+}$$
+        </div>
+
+        <h2>Practice Problems</h2>
+        <ol>
+            <li>Balance: Al + HCl &rarr; AlCl<sub>3</sub> + H<sub>2</sub></li>
+            <li>Balance: C<sub>4</sub>H<sub>10</sub> + O<sub>2</sub> &rarr; CO<sub>2</sub> + H<sub>2</sub>O</li>
+            <li>Balance in acidic solution: Cr<sub>2</sub>O<sub>7</sub><sup>2−</sup> + Fe<sup>2+</sup> &rarr; Cr<sup>3+</sup> + Fe<sup>3+</sup></li>
+            <li>Why can't you balance N<sub>2</sub> + H<sub>2</sub> &rarr; NH<sub>3</sub> by writing N<sub>2</sub> + H<sub>6</sub> &rarr; N<sub>2</sub>H<sub>6</sub>?</li>
+        </ol>
+        <p><strong>Answers:</strong> 1. 2 Al + 6 HCl &rarr; 2 AlCl<sub>3</sub> + 3 H<sub>2</sub> &nbsp; 2. 2 C<sub>4</sub>H<sub>10</sub> + 13 O<sub>2</sub> &rarr; 8 CO<sub>2</sub> + 10 H<sub>2</sub>O &nbsp; 3. Cr<sub>2</sub>O<sub>7</sub><sup>2−</sup> + 14 H<sup>+</sup> + 6 Fe<sup>2+</sup> &rarr; 2 Cr<sup>3+</sup> + 7 H<sub>2</sub>O + 6 Fe<sup>3+</sup> &nbsp; 4. That changes the substances — H<sub>6</sub> and N<sub>2</sub>H<sub>6</sub> don't exist as reactants/products here; only coefficients may change.</p>
+        <div class="site-footer">
+            ChemistNate &bull; Released to the <strong>Public Domain</strong>. Feel free to use, share, and build upon these educational resources freely.
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

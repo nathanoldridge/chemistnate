@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChemistNate - 3.2 Synthesis Reactions</title>
+
+    <!-- KaTeX for rendering chemical formulas and equations -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ]
+        });">
+    </script>
+
+    <style>
+        /* Classic Lamar University / Paul's Notes color palette and typography */
+        body {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Layout Container */
+        #container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Left Sidebar Navigation */
+        #sidebar {
+            width: 260px;
+            background-color: #f4f4f4;
+            border-right: 1px solid #cccccc;
+            padding: 20px 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        #sidebar h2 {
+            font-size: 16px;
+            color: #8b0000; /* Academic maroon accent */
+            margin-top: 0;
+            border-bottom: 2px solid #8b0000;
+            padding-bottom: 5px;
+        }
+
+        #sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        #sidebar li {
+            margin-bottom: 8px;
+        }
+
+        #sidebar li ul {
+            padding-left: 15px;
+            margin-top: 5px;
+        }
+
+        #sidebar a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        #sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        #sidebar .active {
+            font-weight: bold;
+            color: #000000;
+        }
+
+        /* Main Content Pane */
+        #content {
+            flex-grow: 1;
+            padding: 30px 40px;
+            max-width: 800px;
+            box-sizing: border-box;
+        }
+
+        /* Header / Breadcrumbs */
+        .breadcrumbs {
+            font-size: 13px;
+            color: #555555;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumbs a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        h1 {
+            font-family: "Georgia", Times, serif;
+            color: #8b0000;
+            font-size: 28px;
+            margin-top: 0;
+            border-bottom: 1px solid #dddddd;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-family: "Georgia", Times, serif;
+            color: #333333;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+
+        /* Course Directory Grid / List */
+        .course-card {
+            background-color: #f9f9f9;
+            border: 1px solid #cccccc;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+
+        .course-card h3 {
+            font-family: "Georgia", Times, serif;
+            color: #004b87;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .course-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .course-card li {
+            margin-bottom: 5px;
+        }
+
+        /* Callout Box */
+        .notice-box {
+            background-color: #fffdf0;
+            border-left: 4px solid #d4af37;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 50px;
+            border-top: 1px solid #cccccc;
+            padding-top: 15px;
+            font-size: 12px;
+            color: #666666;
+            text-align: center;
+        }
+            /* Worked Example Callout */
+        .example {
+            background-color: #f9f9f9;
+            border-left: 4px solid #004b87;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+        .example strong:first-child { color: #004b87; }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <!-- Left Navigation Sidebar -->
+    <div id="sidebar">
+        <h2>ChemistNate</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sch4u.html">SCH4U — Grade 12 Chemistry (Ontario)</a></li>
+            <li><a href="#">General Chemistry I</a>
+                <ul>
+                    <li><a href="stoichiometry.html">1. Stoichiometry</a></li>
+                    <li><a href="aqueous-reactions.html">2. Aqueous Reactions</a></li>
+                    <li><a href="#">3. Chemical Equations</a>
+                        <ul>
+                            <li><a href="balancing-equations.html">3.1 Balancing Equations</a></li>
+                            <li><a href="synthesis-reactions.html" class="active">3.2 Synthesis Reactions</a></li>
+                            <li><a href="decomposition-reactions.html">3.3 Decomposition Reactions</a></li>
+                            <li><a href="combustion-reactions.html">3.4 Combustion Reactions</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="thermochemistry.html">4. Thermochemistry</a></li>
+                    <li><a href="atomic-structure.html">5. Atomic Structure</a></li>
+                    <li><a href="electronic-structure.html">6. Electronic Structure &amp; Periodic Trends</a></li>
+                    <li><a href="chemical-bonding.html">7. Chemical Bonding &amp; Molecular Geometry</a></li>
+                    <li><a href="gases.html">8. Gases</a></li>
+                    <li><a href="liquids-solids.html">9. Liquids, Solids &amp; Intermolecular Forces</a></li>
+                    <li><a href="solutions-colligative.html">10. Solutions &amp; Colligative Properties</a></li>
+                    <li><a href="atmospheric-chemistry.html">11. Gases &amp; Atmospheric Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">General Chemistry II</a>
+                <ul>
+                    <li><a href="kinetics.html">1. Reaction Kinetics &amp; Rate Laws</a></li>
+                    <li><a href="equilibrium.html">2. Chemical Equilibrium</a></li>
+                    <li><a href="acids-bases.html">3. Acids, Bases, and Buffers</a></li>
+                    <li><a href="electrochemistry.html">4. Electrochemistry &amp; Redox Cells</a></li>
+                    <li><a href="thermodynamics.html">5. Thermodynamics</a></li>
+                    <li><a href="solubility-ksp.html">6. Solubility &amp; the Solubility Product</a></li>
+                    <li><a href="nuclear-chemistry.html">7. Nuclear Chemistry</a></li>
+                    <li><a href="coordination-chemistry.html">8. Coordination Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry I</a>
+                <ul>
+                    <li><a href="nomenclature.html">1. Nomenclature &amp; Functional Groups</a></li>
+                    <li><a href="stereochemistry.html">2. Stereochemistry &amp; Isomerism</a></li>
+                    <li><a href="substitution-elimination.html">3. Substitution and Elimination</a></li>
+                    <li><a href="organic-structure.html">4. Structure &amp; Bonding in Organic Molecules</a></li>
+                    <li><a href="alkenes.html">5. Alkenes</a></li>
+                    <li><a href="alkynes.html">6. Alkynes</a></li>
+                    <li><a href="alcohols-ethers.html">7. Alcohols &amp; Ethers</a></li>
+                    <li><a href="spectroscopy.html">8. Spectroscopy</a></li>
+                    <li><a href="polymers.html">9. Polymers</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry II</a>
+                <ul>
+                    <li><a href="aromatic-chemistry.html">1. Aromatic Chemistry</a></li>
+                    <li><a href="aldehydes-ketones.html">2. Aldehydes &amp; Ketones</a></li>
+                    <li><a href="carboxylic-acids.html">3. Carboxylic Acids &amp; Derivatives</a></li>
+                    <li><a href="enolates-aldol.html">4. Enolates &amp; the Aldol Reaction</a></li>
+                    <li><a href="amines.html">5. Amines</a></li>
+                    <li><a href="conjugated-systems.html">6. Conjugated Systems &amp; Diels-Alder</a></li>
+                    <li><a href="biomolecules.html">7. Biomolecules</a></li>
+                    <li><a href="synthesis-strategy.html">8. Synthesis Strategy &amp; Retrosynthesis</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="content">
+        <div class="breadcrumbs">
+            Home / General Chemistry I / 3. Chemical Equations / 3.2 Synthesis Reactions
+        </div>
+
+        <h1>3.2 Synthesis Reactions</h1>
+
+
+        <p>A synthesis (composition) reaction combines two or more simple reactants into a single, more complex product: $$\text{A} + \text{B} \rightarrow \text{AB}$$ Recognizing the pattern lets you predict products from reactants alone.</p>
+
+        <h2>Two Elements Combine</h2>
+        <p>A metal plus a nonmetal forms an ionic compound; any element plus oxygen forms an oxide.</p>
+        <div class="example">
+            <strong>Example:</strong> Magnesium burns in oxygen:
+            $$2\,\text{Mg}(s) + \text{O}_2(g) \rightarrow 2\,\text{MgO}(s)$$
+            <strong>Example:</strong> Hydrogen plus chlorine:
+            $$\text{H}_2(g) + \text{Cl}_2(g) \rightarrow 2\,\text{HCl}(g)$$
+        </div>
+
+        <h2>Oxides Plus Water</h2>
+        <p>A <em>basic oxide</em> (metal oxide) plus water gives a base; an <em>acidic oxide</em> (nonmetal oxide) plus water gives an acid.</p>
+        <div class="example">
+            <strong>Example (base):</strong> $$\text{CaO}(s) + \text{H}_2\text{O}(l) \rightarrow \text{Ca}(\text{OH})_2(aq)$$
+            <strong>Example (acid):</strong> $$\text{SO}_3(g) + \text{H}_2\text{O}(l) \rightarrow \text{H}_2\text{SO}_4(aq)$$
+        </div>
+
+        <h2>Predicting Products</h2>
+        <p>Ask: are the reactants elements, or simple compounds like oxides and water? If two simple things merge into one product, write the single product first, then balance. Potassium plus bromine: $2\,\text{K} + \text{Br}_2 \rightarrow 2\,\text{KBr}$.</p>
+
+        <h2>Practice Problems</h2>
+        <ol>
+            <li>Predict the product(s): Na(s) + Cl<sub>2</sub>(g) &rarr; ?</li>
+            <li>Complete and balance: SO<sub>2</sub>(g) + H<sub>2</sub>O(l) &rarr; ?</li>
+            <li>Complete and balance: Li<sub>2</sub>O(s) + H<sub>2</sub>O(l) &rarr; ?</li>
+            <li>Write the balanced equation for aluminum combining with oxygen.</li>
+        </ol>
+        <p><strong>Answers:</strong> 1. 2 NaCl &nbsp; 2. H<sub>2</sub>SO<sub>3</sub> &nbsp; 3. 2 LiOH &nbsp; 4. 4 Al + 3 O<sub>2</sub> &rarr; 2 Al<sub>2</sub>O<sub>3</sub></p>
+        <div class="site-footer">
+            ChemistNate &bull; Released to the <strong>Public Domain</strong>. Feel free to use, share, and build upon these educational resources freely.
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

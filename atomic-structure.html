@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChemistNate - 5. Atomic Structure</title>
+
+    <!-- KaTeX for rendering chemical formulas and equations -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ]
+        });">
+    </script>
+
+    <style>
+        /* Classic Lamar University / Paul's Notes color palette and typography */
+        body {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Layout Container */
+        #container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Left Sidebar Navigation */
+        #sidebar {
+            width: 260px;
+            background-color: #f4f4f4;
+            border-right: 1px solid #cccccc;
+            padding: 20px 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        #sidebar h2 {
+            font-size: 16px;
+            color: #8b0000; /* Academic maroon accent */
+            margin-top: 0;
+            border-bottom: 2px solid #8b0000;
+            padding-bottom: 5px;
+        }
+
+        #sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        #sidebar li {
+            margin-bottom: 8px;
+        }
+
+        #sidebar li ul {
+            padding-left: 15px;
+            margin-top: 5px;
+        }
+
+        #sidebar a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        #sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        #sidebar .active {
+            font-weight: bold;
+            color: #000000;
+        }
+
+        /* Main Content Pane */
+        #content {
+            flex-grow: 1;
+            padding: 30px 40px;
+            max-width: 800px;
+            box-sizing: border-box;
+        }
+
+        /* Header / Breadcrumbs */
+        .breadcrumbs {
+            font-size: 13px;
+            color: #555555;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumbs a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        h1 {
+            font-family: "Georgia", Times, serif;
+            color: #8b0000;
+            font-size: 28px;
+            margin-top: 0;
+            border-bottom: 1px solid #dddddd;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-family: "Georgia", Times, serif;
+            color: #333333;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+
+        /* Course Directory Grid / List */
+        .course-card {
+            background-color: #f9f9f9;
+            border: 1px solid #cccccc;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+
+        .course-card h3 {
+            font-family: "Georgia", Times, serif;
+            color: #004b87;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .course-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .course-card li {
+            margin-bottom: 5px;
+        }
+
+        /* Callout Box */
+        .notice-box {
+            background-color: #fffdf0;
+            border-left: 4px solid #d4af37;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 50px;
+            border-top: 1px solid #cccccc;
+            padding-top: 15px;
+            font-size: 12px;
+            color: #666666;
+            text-align: center;
+        }
+            /* Worked Example Callout */
+        .example {
+            background-color: #f9f9f9;
+            border-left: 4px solid #004b87;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+        .example strong:first-child { color: #004b87; }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <!-- Left Navigation Sidebar -->
+    <div id="sidebar">
+        <h2>ChemistNate</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sch4u.html">SCH4U — Grade 12 Chemistry (Ontario)</a></li>
+            <li><a href="#">General Chemistry I</a>
+                <ul>
+                    <li><a href="stoichiometry.html">1. Stoichiometry</a></li>
+                    <li><a href="aqueous-reactions.html">2. Aqueous Reactions</a></li>
+                    <li><a href="#">3. Chemical Equations</a>
+                        <ul>
+                            <li><a href="balancing-equations.html">3.1 Balancing Equations</a></li>
+                            <li><a href="synthesis-reactions.html">3.2 Synthesis Reactions</a></li>
+                            <li><a href="decomposition-reactions.html">3.3 Decomposition Reactions</a></li>
+                            <li><a href="combustion-reactions.html">3.4 Combustion Reactions</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="thermochemistry.html">4. Thermochemistry</a></li>
+                    <li><a href="atomic-structure.html" class="active">5. Atomic Structure</a></li>
+                    <li><a href="electronic-structure.html">6. Electronic Structure &amp; Periodic Trends</a></li>
+                    <li><a href="chemical-bonding.html">7. Chemical Bonding &amp; Molecular Geometry</a></li>
+                    <li><a href="gases.html">8. Gases</a></li>
+                    <li><a href="liquids-solids.html">9. Liquids, Solids &amp; Intermolecular Forces</a></li>
+                    <li><a href="solutions-colligative.html">10. Solutions &amp; Colligative Properties</a></li>
+                    <li><a href="atmospheric-chemistry.html">11. Gases &amp; Atmospheric Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">General Chemistry II</a>
+                <ul>
+                    <li><a href="kinetics.html">1. Reaction Kinetics &amp; Rate Laws</a></li>
+                    <li><a href="equilibrium.html">2. Chemical Equilibrium</a></li>
+                    <li><a href="acids-bases.html">3. Acids, Bases, and Buffers</a></li>
+                    <li><a href="electrochemistry.html">4. Electrochemistry &amp; Redox Cells</a></li>
+                    <li><a href="thermodynamics.html">5. Thermodynamics</a></li>
+                    <li><a href="solubility-ksp.html">6. Solubility &amp; the Solubility Product</a></li>
+                    <li><a href="nuclear-chemistry.html">7. Nuclear Chemistry</a></li>
+                    <li><a href="coordination-chemistry.html">8. Coordination Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry I</a>
+                <ul>
+                    <li><a href="nomenclature.html">1. Nomenclature &amp; Functional Groups</a></li>
+                    <li><a href="stereochemistry.html">2. Stereochemistry &amp; Isomerism</a></li>
+                    <li><a href="substitution-elimination.html">3. Substitution and Elimination</a></li>
+                    <li><a href="organic-structure.html">4. Structure &amp; Bonding in Organic Molecules</a></li>
+                    <li><a href="alkenes.html">5. Alkenes</a></li>
+                    <li><a href="alkynes.html">6. Alkynes</a></li>
+                    <li><a href="alcohols-ethers.html">7. Alcohols &amp; Ethers</a></li>
+                    <li><a href="spectroscopy.html">8. Spectroscopy</a></li>
+                    <li><a href="polymers.html">9. Polymers</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry II</a>
+                <ul>
+                    <li><a href="aromatic-chemistry.html">1. Aromatic Chemistry</a></li>
+                    <li><a href="aldehydes-ketones.html">2. Aldehydes &amp; Ketones</a></li>
+                    <li><a href="carboxylic-acids.html">3. Carboxylic Acids &amp; Derivatives</a></li>
+                    <li><a href="enolates-aldol.html">4. Enolates &amp; the Aldol Reaction</a></li>
+                    <li><a href="amines.html">5. Amines</a></li>
+                    <li><a href="conjugated-systems.html">6. Conjugated Systems &amp; Diels-Alder</a></li>
+                    <li><a href="biomolecules.html">7. Biomolecules</a></li>
+                    <li><a href="synthesis-strategy.html">8. Synthesis Strategy &amp; Retrosynthesis</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="content">
+        <div class="breadcrumbs">
+            Home / General Chemistry I / 5. Atomic Structure
+        </div>
+
+        <h1>5. Atomic Structure</h1>
+
+
+        <p>All matter is built from atoms: a dense, positively charged nucleus of protons and neutrons, surrounded by electrons. Three numbers describe any atom — atomic number, mass number, and charge.</p>
+
+        <h2>Subatomic Particles</h2>
+        <ul>
+            <li><strong>Protons:</strong> charge +1, mass ≈ 1 amu — the atomic number $Z$ counts them and defines the element.</li>
+            <li><strong>Neutrons:</strong> charge 0, mass ≈ 1 amu — with protons they make the mass number $A = Z + N$.</li>
+            <li><strong>Electrons:</strong> charge −1, mass ≈ 1/1836 amu — in a neutral atom, electrons = protons.</li>
+        </ul>
+        <div class="example">
+            <strong>Example:</strong> $^{56}\text{Fe}^{3+}$ has $Z = 26$, so 26 protons and $56 - 26 = 30$ neutrons. The 3+ charge means it lost 3 electrons: $26 - 3 = 23$ electrons.
+        </div>
+
+        <h2>Isotopes and Average Atomic Mass</h2>
+        <p>Isotopes of an element share $Z$ but differ in $N$. The atomic mass on the periodic table is the weighted average of the isotopes:</p>
+        $$\text{Average mass} = \sum (\text{fraction} \times \text{isotope mass})$$
+        <div class="example">
+            <strong>Example:</strong> Magnesium is 78.99% $^{24}\text{Mg}$ (23.985 amu), 10.00% $^{25}\text{Mg}$ (24.986 amu), 11.01% $^{26}\text{Mg}$ (25.983 amu):
+            $$0.7899(23.985) + 0.1000(24.986) + 0.1101(25.983) = 18.945 + 2.499 + 2.861 = 24.31\ \text{amu}$$
+        </div>
+
+        <h2>The Bohr Model and Line Spectra</h2>
+        <p>Electrons occupy fixed energy levels, $E_n = -\frac{2.18 \times 10^{-18}}{n^2}$ J for hydrogen. A photon is emitted when an electron drops to a lower level; its wavelength follows the Rydberg equation: $$\frac{1}{\lambda} = R\left(\frac{1}{n_1^2} - \frac{1}{n_2^2}\right), \quad R = 1.097 \times 10^7\ \text{m}^{-1}$$</p>
+        <div class="example">
+            <strong>Example:</strong> The red H-α line is the $n = 3 \rightarrow 2$ transition:
+            $$\frac{1}{\lambda} = 1.097 \times 10^7\left(\frac{1}{4} - \frac{1}{9}\right) = 1.52 \times 10^6\ \text{m}^{-1} \;\Rightarrow\; \lambda = 656\ \text{nm}$$
+        </div>
+
+        <h2>Practice Problems</h2>
+        <ol>
+            <li>How many protons, neutrons, and electrons are in <sup>56</sup>Fe<sup>3+</sup>?</li>
+            <li>Copper is 69.15% <sup>63</sup>Cu (62.93 amu) and 30.85% <sup>65</sup>Cu (64.93 amu). Calculate its average atomic mass.</li>
+            <li>Find the wavelength of the n = 2 &rarr; 1 (Lyman) transition in hydrogen.</li>
+            <li>Which has more neutrons: <sup>35</sup>Cl or <sup>37</sup>Cl? How many more?</li>
+        </ol>
+        <p><strong>Answers:</strong> 1. 26 p, 30 n, 23 e &nbsp; 2. 63.55 amu &nbsp; 3. 121.5 nm &nbsp; 4. <sup>37</sup>Cl, by 2 (20 vs 18)</p>
+        <div class="site-footer">
+            ChemistNate &bull; Released to the <strong>Public Domain</strong>. Feel free to use, share, and build upon these educational resources freely.
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
