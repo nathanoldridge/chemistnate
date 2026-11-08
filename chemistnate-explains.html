@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChemistNate - ChemistNate Explains</title>
+
+    <!-- KaTeX for rendering chemical formulas and equations -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ]
+        });">
+    </script>
+
+    <style>
+        /* Classic Lamar University / Paul's Notes color palette and typography */
+        body {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Layout Container */
+        #container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Left Sidebar Navigation */
+        #sidebar {
+            width: 260px;
+            background-color: #f4f4f4;
+            border-right: 1px solid #cccccc;
+            padding: 20px 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        #sidebar h2 {
+            font-size: 16px;
+            color: #8b0000; /* Academic maroon accent */
+            margin-top: 0;
+            border-bottom: 2px solid #8b0000;
+            padding-bottom: 5px;
+        }
+
+        #sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        #sidebar li {
+            margin-bottom: 8px;
+        }
+
+        #sidebar li ul {
+            padding-left: 15px;
+            margin-top: 5px;
+        }
+
+        #sidebar a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        #sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        #sidebar .active {
+            font-weight: bold;
+            color: #000000;
+        }
+
+        /* Main Content Pane */
+        #content {
+            flex-grow: 1;
+            padding: 30px 40px;
+            max-width: 800px;
+            box-sizing: border-box;
+        }
+
+        /* Header / Breadcrumbs */
+        .breadcrumbs {
+            font-size: 13px;
+            color: #555555;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumbs a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        h1 {
+            font-family: "Georgia", Times, serif;
+            color: #8b0000;
+            font-size: 28px;
+            margin-top: 0;
+            border-bottom: 1px solid #dddddd;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-family: "Georgia", Times, serif;
+            color: #333333;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+
+        /* Course Directory Grid / List */
+        .course-card {
+            background-color: #f9f9f9;
+            border: 1px solid #cccccc;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+
+        .course-card h3 {
+            font-family: "Georgia", Times, serif;
+            color: #004b87;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .course-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .course-card li {
+            margin-bottom: 5px;
+        }
+
+        /* Callout Box */
+        .notice-box {
+            background-color: #fffdf0;
+            border-left: 4px solid #d4af37;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 50px;
+            border-top: 1px solid #cccccc;
+            padding-top: 15px;
+            font-size: 12px;
+            color: #666666;
+            text-align: center;
+        }
+            /* Worked Example Callout */
+        .example {
+            background-color: #f9f9f9;
+            border-left: 4px solid #004b87;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+        .example strong:first-child { color: #004b87; }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <!-- Left Navigation Sidebar -->
+    <div id="sidebar">
+        <h2>ChemistNate</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sch3u.html">SCH3U — Grade 11 Chemistry (Ontario)</a></li>
+            <li><a href="sch4u.html">SCH4U — Grade 12 Chemistry (Ontario)</a></li>
+            <li><a href="#">General Chemistry I</a>
+                <ul>
+                    <li><a href="matter-measurement.html">Foundations: Matter and Measurement</a></li>
+                    <li><a href="stoichiometry.html">1. Stoichiometry</a></li>
+                    <li><a href="aqueous-reactions.html">2. Aqueous Reactions</a></li>
+                    <li><a href="#">3. Chemical Equations</a>
+                        <ul>
+                            <li><a href="balancing-equations.html">3.1 Balancing Equations</a></li>
+                            <li><a href="synthesis-reactions.html">3.2 Synthesis Reactions</a></li>
+                            <li><a href="decomposition-reactions.html">3.3 Decomposition Reactions</a></li>
+                            <li><a href="combustion-reactions.html">3.4 Combustion Reactions</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="redox-reactions.html">Redox Reactions</a></li>
+                    <li><a href="thermochemistry.html">4. Thermochemistry</a></li>
+                    <li><a href="atomic-structure.html">5. Atomic Structure</a></li>
+                    <li><a href="electronic-structure.html">6. Electronic Structure &amp; Periodic Trends</a></li>
+                    <li><a href="chemical-bonding.html">7. Chemical Bonding &amp; Molecular Geometry</a></li>
+                    <li><a href="molecular-orbital-theory.html">Molecular Orbital Theory</a></li>
+                    <li><a href="inorganic-nomenclature.html">Inorganic Nomenclature</a></li>
+                    <li><a href="gases.html">8. Gases</a></li>
+                    <li><a href="liquids-solids.html">9. Liquids, Solids &amp; Intermolecular Forces</a></li>
+                    <li><a href="solids-crystal-structures.html">Solids and Crystal Structures</a></li>
+                    <li><a href="solutions-colligative.html">10. Solutions &amp; Colligative Properties</a></li>
+                    <li><a href="solutions-advanced.html">Solutions: Advanced Topics</a></li>
+                    <li><a href="atmospheric-chemistry.html">11. Gases &amp; Atmospheric Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">General Chemistry II</a>
+                <ul>
+                    <li><a href="kinetics.html">1. Reaction Kinetics &amp; Rate Laws</a></li>
+                    <li><a href="reaction-mechanisms.html">Reaction Mechanisms and Catalysis</a></li>
+                    <li><a href="equilibrium.html">2. Chemical Equilibrium</a></li>
+                    <li><a href="acids-bases.html">3. Acids, Bases, and Buffers</a></li>
+                    <li><a href="acid-base-titrations.html">Acid–Base Titrations</a></li>
+                    <li><a href="electrochemistry.html">4. Electrochemistry &amp; Redox Cells</a></li>
+                    <li><a href="thermodynamics.html">5. Thermodynamics</a></li>
+                    <li><a href="solubility-ksp.html">6. Solubility &amp; the Solubility Product</a></li>
+                    <li><a href="nuclear-chemistry.html">7. Nuclear Chemistry</a></li>
+                    <li><a href="coordination-chemistry.html">8. Coordination Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry I</a>
+                <ul>
+                    <li><a href="nomenclature.html">1. Nomenclature &amp; Functional Groups</a></li>
+                    <li><a href="stereochemistry.html">2. Stereochemistry &amp; Isomerism</a></li>
+                    <li><a href="substitution-elimination.html">3. Substitution and Elimination</a></li>
+                    <li><a href="organic-structure.html">4. Structure &amp; Bonding in Organic Molecules</a></li>
+                    <li><a href="alkenes.html">5. Alkenes</a></li>
+                    <li><a href="alkynes.html">6. Alkynes</a></li>
+                    <li><a href="alcohols-ethers.html">7. Alcohols &amp; Ethers</a></li>
+                    <li><a href="spectroscopy.html">8. Spectroscopy</a></li>
+                    <li><a href="polymers.html">9. Polymers</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry II</a>
+                <ul>
+                    <li><a href="aromatic-chemistry.html">1. Aromatic Chemistry</a></li>
+                    <li><a href="aldehydes-ketones.html">2. Aldehydes &amp; Ketones</a></li>
+                    <li><a href="carboxylic-acids.html">3. Carboxylic Acids &amp; Derivatives</a></li>
+                    <li><a href="enolates-aldol.html">4. Enolates &amp; the Aldol Reaction</a></li>
+                    <li><a href="amines.html">5. Amines</a></li>
+                    <li><a href="conjugated-systems.html">6. Conjugated Systems &amp; Diels-Alder</a></li>
+                    <li><a href="biomolecules.html">7. Biomolecules</a></li>
+                    <li><a href="synthesis-strategy.html">8. Synthesis Strategy &amp; Retrosynthesis</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Reference</a>
+                <ul>
+                    <li><a href="formula-sheet.html">Formula Sheet</a></li>
+                    <li><a href="periodic-table.html">Periodic Table</a></li>
+                    <li><a href="chemistnate-explains.html" class="active">ChemistNate Explains</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="content">
+        <div class="breadcrumbs">
+            Home / ChemistNate Explains
+        </div>
+
+        <h1>ChemistNate Explains</h1>
+
+
+        <p><strong>ChemistNate Explains</strong> is the everyday-questions corner of this site: short answers to things you've probably wondered about, each one grounded in the chemistry on these pages. Every question below is a two-minute explanation — and each one is a future ChemistNate video or short.</p>
+
+        <div class="notice-box">
+            <strong>How to use this page:</strong> read the short answer, then follow the links into the full lesson when you want the math and the mechanism behind it. Have a question of your own? These are the kinds of questions the channel answers — send one in.
+        </div>
+
+        <h2>Why do ships rust as they age?</h2>
+        <p>Iron reacts with oxygen and water: iron atoms lose electrons (oxidation) while dissolved oxygen gains them (reduction). Salt water speeds the whole thing up because the dissolved ions let charge flow freely, turning a ship's hull into one giant galvanic cell.</p>
+        <p><strong>Learn more:</strong> <a href="redox-reactions.html">Redox Reactions</a>, <a href="electrochemistry.html">Electrochemistry &amp; Redox Cells</a></p>
+
+        <h2>Why does ice float on liquid water?</h2>
+        <p>When water freezes, its molecules lock into an open hexagonal lattice held together by hydrogen bonds. That lattice takes up about 9% more space than the same mass of liquid water, so ice is less dense than the water it floats on. Water is one of the few substances that expands when it freezes — and aquatic life depends on it, since lakes freeze from the top down.</p>
+        <p><strong>Learn more:</strong> <a href="liquids-solids.html">Liquids, Solids &amp; Intermolecular Forces</a></p>
+
+        <h2>Why does salt melt ice on roads?</h2>
+        <p>Dissolved salt lowers water's freezing point — a colligative property called freezing point depression. Ice at −5 °C stays frozen in pure water, but in salty water the freezing point drops below the air temperature, so the ice melts. It only works down to about −21 °C, the limit for a salt–water mixture.</p>
+        <p><strong>Learn more:</strong> <a href="solutions-colligative.html">Solutions &amp; Colligative Properties</a></p>
+
+        <h2>Why can't you put out a grease fire with water?</h2>
+        <p>Burning cooking oil is far hotter than water's boiling point and less dense than water, so poured water sinks beneath the oil, instantly flashes into steam, and throws burning droplets in every direction. Smother a grease fire with a lid instead — no oxygen, no fire.</p>
+        <p><strong>Learn more:</strong> <a href="combustion-reactions.html">Combustion Reactions</a>, <a href="liquids-solids.html">Liquids, Solids &amp; Intermolecular Forces</a></p>
+
+        <h2>Why does your voice sound different after breathing helium?</h2>
+        <p>Sound travels roughly three times faster in helium than in air because helium is much less dense. Your vocal cords still vibrate at the same pitch, but the faster sound raises the resonant frequencies of your vocal tract, so your voice comes out squeaky.</p>
+        <p><strong>Learn more:</strong> <a href="gases.html">Gases</a></p>
+
+        <h2>Why do cut apples turn brown?</h2>
+        <p>Cutting an apple exposes its flesh to oxygen, and enzymes in the fruit oxidize phenol compounds into brown melanin-like pigments. It is oxidation in action — and lemon juice slows it down because vitamin C is an antioxidant that gets oxidized first.</p>
+        <p><strong>Learn more:</strong> <a href="redox-reactions.html">Redox Reactions</a></p>
+
+        <h2>Why is the Statue of Liberty green?</h2>
+        <p>The statue's skin is copper, and over decades it oxidized in sea air into a patina of copper carbonates and sulfates. The green layer is not damage — it seals the copper underneath and protects it from further corrosion.</p>
+        <p><strong>Learn more:</strong> <a href="redox-reactions.html">Redox Reactions</a>, <a href="descriptive-chemistry.html">Descriptive Chemistry of the Elements</a></p>
+
+        <h2>Why does water boil at a lower temperature on a mountain?</h2>
+        <p>Water boils when its vapour pressure equals the surrounding air pressure, and air pressure falls with altitude. At 1,500 m the pressure is low enough that water's vapour pressure matches it at about 95 °C instead of 100 °C — which is why pasta takes longer to cook up a mountain.</p>
+        <p><strong>Learn more:</strong> <a href="liquids-solids.html">Liquids, Solids &amp; Intermolecular Forces</a></p>
+
+        <h2>Why does a balloon shrink in the cold?</h2>
+        <p>Charles's law: at constant pressure, a gas's volume is proportional to its absolute temperature. Cold air means slower-moving particles pushing less hard on the balloon's skin, so it shrinks — and it puffs back up when it warms.</p>
+        <p><strong>Learn more:</strong> <a href="gases.html">Gases</a></p>
+
+        <h2>Why is diamond hard but graphite soft?</h2>
+        <p>Both are pure carbon — the difference is structure. In diamond every carbon is bonded to four neighbours in a rigid three-dimensional network. In graphite the carbons form flat sheets that slide past each other easily, which is why pencil lead (graphite) leaves a mark and diamond cuts glass.</p>
+        <p><strong>Learn more:</strong> <a href="solids-crystal-structures.html">Solids and Crystal Structures</a></p>
+
+        <h2>Why does soap clean?</h2>
+        <p>A soap molecule has a water-loving head and a grease-loving tail. The tails grab onto grease and dirt while the heads stay in the water, forming tiny spheres called micelles that lift the grime away and rinse off. Without soap, water alone cannot wet grease at all.</p>
+        <p><strong>Learn more:</strong> <a href="solutions-advanced.html">Solutions: Advanced Topics</a>, <a href="liquids-solids.html">Liquids, Solids &amp; Intermolecular Forces</a></p>
+
+        <h2>Why does bread rise?</h2>
+        <p>Yeast ferments sugars in the dough and releases carbon dioxide gas. The bubbles get trapped in the dough's stretchy gluten network, and the loaf puffs up — then the heat of the oven sets the structure and the yeast dies.</p>
+        <p><strong>Learn more:</strong> <a href="gases.html">Gases</a>, <a href="reaction-mechanisms.html">Reaction Mechanisms and Catalysis</a></p>
+
+        <h2>Why do batteries die?</h2>
+        <p>A battery is a galvanic cell: as it runs, its reactants are consumed and its products build up, so the cell potential steadily falls toward zero. A rechargeable battery just runs the same reaction in reverse, driven by an outside power source.</p>
+        <p><strong>Learn more:</strong> <a href="electrochemistry.html">Electrochemistry &amp; Redox Cells</a></p>
+
+        <h2>Why do we see a rainbow?</h2>
+        <p>Sunlight bends (refracts) as it enters a raindrop, and each wavelength bends by a slightly different amount, splitting white light into its spectrum. The light reflects off the back of the drop and bends again on the way out — and because every drop sends you a different colour depending on its angle, you see an arc.</p>
+        <p><strong>Learn more:</strong> <a href="spectroscopy.html">Spectroscopy</a></p>
+
+        <div class="site-footer">
+            ChemistNate &bull; Released to the <strong>Public Domain</strong>. Feel free to use, share, and build upon these educational resources freely.
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

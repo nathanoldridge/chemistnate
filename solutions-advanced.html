@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChemistNate - Solutions: Advanced Topics</title>
+
+    <!-- KaTeX for rendering chemical formulas and equations -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ]
+        });">
+    </script>
+
+    <style>
+        /* Classic Lamar University / Paul's Notes color palette and typography */
+        body {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Layout Container */
+        #container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Left Sidebar Navigation */
+        #sidebar {
+            width: 260px;
+            background-color: #f4f4f4;
+            border-right: 1px solid #cccccc;
+            padding: 20px 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        #sidebar h2 {
+            font-size: 16px;
+            color: #8b0000; /* Academic maroon accent */
+            margin-top: 0;
+            border-bottom: 2px solid #8b0000;
+            padding-bottom: 5px;
+        }
+
+        #sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        #sidebar li {
+            margin-bottom: 8px;
+        }
+
+        #sidebar li ul {
+            padding-left: 15px;
+            margin-top: 5px;
+        }
+
+        #sidebar a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        #sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        #sidebar .active {
+            font-weight: bold;
+            color: #000000;
+        }
+
+        /* Main Content Pane */
+        #content {
+            flex-grow: 1;
+            padding: 30px 40px;
+            max-width: 800px;
+            box-sizing: border-box;
+        }
+
+        /* Header / Breadcrumbs */
+        .breadcrumbs {
+            font-size: 13px;
+            color: #555555;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumbs a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        h1 {
+            font-family: "Georgia", Times, serif;
+            color: #8b0000;
+            font-size: 28px;
+            margin-top: 0;
+            border-bottom: 1px solid #dddddd;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-family: "Georgia", Times, serif;
+            color: #333333;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+
+        /* Course Directory Grid / List */
+        .course-card {
+            background-color: #f9f9f9;
+            border: 1px solid #cccccc;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+
+        .course-card h3 {
+            font-family: "Georgia", Times, serif;
+            color: #004b87;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .course-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .course-card li {
+            margin-bottom: 5px;
+        }
+
+        /* Callout Box */
+        .notice-box {
+            background-color: #fffdf0;
+            border-left: 4px solid #d4af37;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 50px;
+            border-top: 1px solid #cccccc;
+            padding-top: 15px;
+            font-size: 12px;
+            color: #666666;
+            text-align: center;
+        }
+            /* Worked Example Callout */
+        .example {
+            background-color: #f9f9f9;
+            border-left: 4px solid #004b87;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+        .example strong:first-child { color: #004b87; }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <!-- Left Navigation Sidebar -->
+    <div id="sidebar">
+        <h2>ChemistNate</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sch3u.html">SCH3U — Grade 11 Chemistry (Ontario)</a></li>
+            <li><a href="sch4u.html">SCH4U — Grade 12 Chemistry (Ontario)</a></li>
+            <li><a href="#">General Chemistry I</a>
+                <ul>
+                    <li><a href="matter-measurement.html">Foundations: Matter and Measurement</a></li>
+                    <li><a href="stoichiometry.html">1. Stoichiometry</a></li>
+                    <li><a href="aqueous-reactions.html">2. Aqueous Reactions</a></li>
+                    <li><a href="#">3. Chemical Equations</a>
+                        <ul>
+                            <li><a href="balancing-equations.html">3.1 Balancing Equations</a></li>
+                            <li><a href="synthesis-reactions.html">3.2 Synthesis Reactions</a></li>
+                            <li><a href="decomposition-reactions.html">3.3 Decomposition Reactions</a></li>
+                            <li><a href="combustion-reactions.html">3.4 Combustion Reactions</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="redox-reactions.html">Redox Reactions</a></li>
+                    <li><a href="thermochemistry.html">4. Thermochemistry</a></li>
+                    <li><a href="atomic-structure.html">5. Atomic Structure</a></li>
+                    <li><a href="electronic-structure.html">6. Electronic Structure &amp; Periodic Trends</a></li>
+                    <li><a href="chemical-bonding.html">7. Chemical Bonding &amp; Molecular Geometry</a></li>
+                    <li><a href="molecular-orbital-theory.html">Molecular Orbital Theory</a></li>
+                    <li><a href="inorganic-nomenclature.html">Inorganic Nomenclature</a></li>
+                    <li><a href="gases.html">8. Gases</a></li>
+                    <li><a href="liquids-solids.html">9. Liquids, Solids &amp; Intermolecular Forces</a></li>
+                    <li><a href="solids-crystal-structures.html">Solids and Crystal Structures</a></li>
+                    <li><a href="solutions-colligative.html">10. Solutions &amp; Colligative Properties</a></li>
+                    <li><a href="solutions-advanced.html" class="active">Solutions: Advanced Topics</a></li>
+                    <li><a href="atmospheric-chemistry.html">11. Gases &amp; Atmospheric Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">General Chemistry II</a>
+                <ul>
+                    <li><a href="kinetics.html">1. Reaction Kinetics &amp; Rate Laws</a></li>
+                    <li><a href="reaction-mechanisms.html">Reaction Mechanisms and Catalysis</a></li>
+                    <li><a href="equilibrium.html">2. Chemical Equilibrium</a></li>
+                    <li><a href="acids-bases.html">3. Acids, Bases, and Buffers</a></li>
+                    <li><a href="acid-base-titrations.html">Acid–Base Titrations</a></li>
+                    <li><a href="electrochemistry.html">4. Electrochemistry &amp; Redox Cells</a></li>
+                    <li><a href="thermodynamics.html">5. Thermodynamics</a></li>
+                    <li><a href="solubility-ksp.html">6. Solubility &amp; the Solubility Product</a></li>
+                    <li><a href="nuclear-chemistry.html">7. Nuclear Chemistry</a></li>
+                    <li><a href="coordination-chemistry.html">8. Coordination Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry I</a>
+                <ul>
+                    <li><a href="nomenclature.html">1. Nomenclature &amp; Functional Groups</a></li>
+                    <li><a href="stereochemistry.html">2. Stereochemistry &amp; Isomerism</a></li>
+                    <li><a href="substitution-elimination.html">3. Substitution and Elimination</a></li>
+                    <li><a href="organic-structure.html">4. Structure &amp; Bonding in Organic Molecules</a></li>
+                    <li><a href="alkenes.html">5. Alkenes</a></li>
+                    <li><a href="alkynes.html">6. Alkynes</a></li>
+                    <li><a href="alcohols-ethers.html">7. Alcohols &amp; Ethers</a></li>
+                    <li><a href="spectroscopy.html">8. Spectroscopy</a></li>
+                    <li><a href="polymers.html">9. Polymers</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry II</a>
+                <ul>
+                    <li><a href="aromatic-chemistry.html">1. Aromatic Chemistry</a></li>
+                    <li><a href="aldehydes-ketones.html">2. Aldehydes &amp; Ketones</a></li>
+                    <li><a href="carboxylic-acids.html">3. Carboxylic Acids &amp; Derivatives</a></li>
+                    <li><a href="enolates-aldol.html">4. Enolates &amp; the Aldol Reaction</a></li>
+                    <li><a href="amines.html">5. Amines</a></li>
+                    <li><a href="conjugated-systems.html">6. Conjugated Systems &amp; Diels-Alder</a></li>
+                    <li><a href="biomolecules.html">7. Biomolecules</a></li>
+                    <li><a href="synthesis-strategy.html">8. Synthesis Strategy &amp; Retrosynthesis</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Reference</a>
+                <ul>
+                    <li><a href="formula-sheet.html">Formula Sheet</a></li>
+                    <li><a href="periodic-table.html">Periodic Table</a></li>
+                    <li><a href="chemistnate-explains.html">ChemistNate Explains</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="content">
+        <div class="breadcrumbs">
+            Home / General Chemistry I / Solutions: Advanced Topics
+        </div>
+
+        <h1>Solutions: Advanced Topics</h1>
+
+
+        <p>Molarity is not the only way to describe a solution. When temperature changes, or when you need to talk about very dilute solutions or vapour pressure, other concentration units are more useful.</p>
+
+        <h2>Concentration Units</h2>
+        <ul>
+            <li><strong>Molality</strong> ($m$): moles of solute per kilogram of solvent — unlike molarity, it does not change when the solution expands or contracts with temperature: $$m = \frac{\text{mol solute}}{\text{kg solvent}}$$</li>
+            <li><strong>Mass percent:</strong> grams of solute per 100 g of solution: $$\text{mass \%} = \frac{\text{mass solute}}{\text{mass solution}} \times 100\%$$</li>
+            <li><strong>Parts per million (ppm) and parts per billion (ppb):</strong> milligrams of solute per kilogram of solution (ppm) and micrograms per kilogram (ppb) — used for trace amounts like pollutants in water. For dilute aqueous solutions, 1 ppm ≈ 1 mg/L.</li>
+        </ul>
+        <div class="example">
+            <strong>Example:</strong> Dissolve 10.0 g of NaCl (molar mass 58.44 g/mol) in 200 g of water:
+            $$n = \frac{10.0\ \text{g}}{58.44\ \text{g/mol}} = 0.171\ \text{mol} \;\Rightarrow\; m = \frac{0.171\ \text{mol}}{0.200\ \text{kg}} = 0.856\ m$$
+            $$\text{mass \%} = \frac{10.0\ \text{g}}{10.0 + 200\ \text{g}} \times 100\% = 4.76\%$$
+            <p>And a water sample containing 25 mg of lead in 5.0 kg of water is $\frac{25\ \text{mg}}{5.0\ \text{kg}} = 5.0$ ppm lead.</p>
+        </div>
+
+        <h2>Henry's Law: Gas Solubility</h2>
+        <p>The solubility of a gas in a liquid is directly proportional to the gas's partial pressure above the liquid: $$C = k_H P$$ where $C$ is the molar solubility and $k_H$ is Henry's law constant for that gas–solvent pair at that temperature.</p>
+        <div class="example">
+            <strong>Example:</strong> For CO<sub>2</sub> in water at 25 °C, $k_H = 3.4 \times 10^{-2}$ mol/L·atm. At a partial pressure of 1.0 atm:
+            $$C = (3.4 \times 10^{-2})(1.0) = 0.034\ \text{M}$$
+            <p>Inside a sealed soda bottle at about 4.0 atm of CO<sub>2</sub>, the solubility rises to:</p>
+            $$C = (3.4 \times 10^{-2})(4.0) = 0.14\ \text{M}$$
+            <p>Open the bottle, the pressure drops to 1 atm, and the excess CO<sub>2</sub> escapes as fizz. Warm soda goes flat faster because $k_H$ decreases as temperature rises.</p>
+        </div>
+
+        <h2>Raoult's Law and Deviations from Ideality</h2>
+        <p>For an ideal solution, the vapour pressure of each component is its mole fraction times its pure vapour pressure: $$P_A = X_A P_A^\circ$$ The total vapour pressure is the sum of the partial pressures. Real solutions deviate when the attractions between unlike molecules differ from those between like molecules.</p>
+        <ul>
+            <li><strong>Positive deviation:</strong> A–B attractions are <em>weaker</em> than A–A and B–B, so molecules escape more easily and the vapour pressure is higher than Raoult's law predicts. Ethanol–water is the classic example — the mixture's vapour pressure is higher than ideal, and it boils at a lower temperature than either pure liquid would suggest.</li>
+            <li><strong>Negative deviation:</strong> A–B attractions are <em>stronger</em> than A–A and B–B, so molecules escape less easily and the vapour pressure is lower than predicted. Acetone–chloroform shows this: hydrogen bonding between the two holds the molecules back, and the mixture's vapour pressure drops below the ideal value.</li>
+        </ul>
+        <div class="example">
+            <strong>Example:</strong> Pure water has $P^\circ = 23.8$ mmHg at 25 °C. In a solution where the mole fraction of water is 0.90, Raoult's law predicts:
+            $$P = X_{\text{water}} P^\circ = (0.90)(23.8\ \text{mmHg}) = 21.4\ \text{mmHg}$$
+        </div>
+
+        <h2>Colloids, Solutions, and Suspensions</h2>
+        <p>A true <strong>solution</strong> has solute particles smaller than 1 nm — they never settle and the mixture is completely transparent. A <strong>colloid</strong> has particles 1–1000 nm across (milk, fog, gelatin, smoke): they stay dispersed indefinitely, but they are big enough to scatter light — the <strong>Tyndall effect</strong>, the visible beam of a flashlight through fog or dusty air. A <strong>suspension</strong> has particles larger than 1000 nm (muddy water, sand in water): they scatter light too, but they settle out over time. The Tyndall effect is the quick test: shine a light through it — a true solution shows no beam, a colloid does.</p>
+
+        <h2>Practice Problems</h2>
+        <ol>
+            <li>Calculate the molality of a solution made by dissolving 15.0 g of glucose (C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>, 180.16 g/mol) in 250 g of water.</li>
+            <li>What is the mass percent of a solution made by dissolving 8.0 g of KCl in 92 g of water?</li>
+            <li>The Henry's law constant for CO<sub>2</sub> in water at 25 °C is 3.4 &times; 10<sup>−2</sup> mol/L·atm. What is the solubility of CO<sub>2</sub> at a partial pressure of 2.5 atm?</li>
+            <li>Pure water has a vapour pressure of 23.8 mmHg at 25 °C. What is the vapour pressure of water in a solution where its mole fraction is 0.80?</li>
+        </ol>
+        <p><strong>Answers:</strong> 1. 0.333 m &nbsp; 2. 8.0% &nbsp; 3. 0.085 M &nbsp; 4. 19.0 mmHg</p>
+        <div class="site-footer">
+            ChemistNate &bull; Released to the <strong>Public Domain</strong>. Feel free to use, share, and build upon these educational resources freely.
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

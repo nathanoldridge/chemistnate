@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChemistNate - Descriptive Chemistry of the Elements</title>
+
+    <!-- KaTeX for rendering chemical formulas and equations -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ]
+        });">
+    </script>
+
+    <style>
+        /* Classic Lamar University / Paul's Notes color palette and typography */
+        body {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Layout Container */
+        #container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Left Sidebar Navigation */
+        #sidebar {
+            width: 260px;
+            background-color: #f4f4f4;
+            border-right: 1px solid #cccccc;
+            padding: 20px 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        #sidebar h2 {
+            font-size: 16px;
+            color: #8b0000; /* Academic maroon accent */
+            margin-top: 0;
+            border-bottom: 2px solid #8b0000;
+            padding-bottom: 5px;
+        }
+
+        #sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        #sidebar li {
+            margin-bottom: 8px;
+        }
+
+        #sidebar li ul {
+            padding-left: 15px;
+            margin-top: 5px;
+        }
+
+        #sidebar a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        #sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        #sidebar .active {
+            font-weight: bold;
+            color: #000000;
+        }
+
+        /* Main Content Pane */
+        #content {
+            flex-grow: 1;
+            padding: 30px 40px;
+            max-width: 800px;
+            box-sizing: border-box;
+        }
+
+        /* Header / Breadcrumbs */
+        .breadcrumbs {
+            font-size: 13px;
+            color: #555555;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumbs a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        h1 {
+            font-family: "Georgia", Times, serif;
+            color: #8b0000;
+            font-size: 28px;
+            margin-top: 0;
+            border-bottom: 1px solid #dddddd;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-family: "Georgia", Times, serif;
+            color: #333333;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+
+        /* Course Directory Grid / List */
+        .course-card {
+            background-color: #f9f9f9;
+            border: 1px solid #cccccc;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+
+        .course-card h3 {
+            font-family: "Georgia", Times, serif;
+            color: #004b87;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .course-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .course-card li {
+            margin-bottom: 5px;
+        }
+
+        /* Callout Box */
+        .notice-box {
+            background-color: #fffdf0;
+            border-left: 4px solid #d4af37;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 50px;
+            border-top: 1px solid #cccccc;
+            padding-top: 15px;
+            font-size: 12px;
+            color: #666666;
+            text-align: center;
+        }
+            /* Worked Example Callout */
+        .example {
+            background-color: #f9f9f9;
+            border-left: 4px solid #004b87;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+        .example strong:first-child { color: #004b87; }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <!-- Left Navigation Sidebar -->
+    <div id="sidebar">
+        <h2>ChemistNate</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sch3u.html">SCH3U — Grade 11 Chemistry (Ontario)</a></li>
+            <li><a href="sch4u.html">SCH4U — Grade 12 Chemistry (Ontario)</a></li>
+            <li><a href="#">General Chemistry I</a>
+                <ul>
+                    <li><a href="matter-measurement.html">Foundations: Matter and Measurement</a></li>
+                    <li><a href="stoichiometry.html">1. Stoichiometry</a></li>
+                    <li><a href="aqueous-reactions.html">2. Aqueous Reactions</a></li>
+                    <li><a href="#">3. Chemical Equations</a>
+                        <ul>
+                            <li><a href="balancing-equations.html">3.1 Balancing Equations</a></li>
+                            <li><a href="synthesis-reactions.html">3.2 Synthesis Reactions</a></li>
+                            <li><a href="decomposition-reactions.html">3.3 Decomposition Reactions</a></li>
+                            <li><a href="combustion-reactions.html">3.4 Combustion Reactions</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="redox-reactions.html">Redox Reactions</a></li>
+                    <li><a href="thermochemistry.html">4. Thermochemistry</a></li>
+                    <li><a href="atomic-structure.html">5. Atomic Structure</a></li>
+                    <li><a href="electronic-structure.html">6. Electronic Structure &amp; Periodic Trends</a></li>
+                    <li><a href="chemical-bonding.html">7. Chemical Bonding &amp; Molecular Geometry</a></li>
+                    <li><a href="molecular-orbital-theory.html">Molecular Orbital Theory</a></li>
+                    <li><a href="inorganic-nomenclature.html">Inorganic Nomenclature</a></li>
+                    <li><a href="gases.html">8. Gases</a></li>
+                    <li><a href="liquids-solids.html">9. Liquids, Solids &amp; Intermolecular Forces</a></li>
+                    <li><a href="solids-crystal-structures.html">Solids and Crystal Structures</a></li>
+                    <li><a href="solutions-colligative.html">10. Solutions &amp; Colligative Properties</a></li>
+                    <li><a href="solutions-advanced.html">Solutions: Advanced Topics</a></li>
+                    <li><a href="atmospheric-chemistry.html">11. Gases &amp; Atmospheric Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">General Chemistry II</a>
+                <ul>
+                    <li><a href="kinetics.html">1. Reaction Kinetics &amp; Rate Laws</a></li>
+                    <li><a href="reaction-mechanisms.html">Reaction Mechanisms and Catalysis</a></li>
+                    <li><a href="equilibrium.html">2. Chemical Equilibrium</a></li>
+                    <li><a href="acids-bases.html">3. Acids, Bases, and Buffers</a></li>
+                    <li><a href="acid-base-titrations.html">Acid–Base Titrations</a></li>
+                    <li><a href="electrochemistry.html">4. Electrochemistry &amp; Redox Cells</a></li>
+                    <li><a href="thermodynamics.html">5. Thermodynamics</a></li>
+                    <li><a href="solubility-ksp.html">6. Solubility &amp; the Solubility Product</a></li>
+                    <li><a href="nuclear-chemistry.html">7. Nuclear Chemistry</a></li>
+                    <li><a href="coordination-chemistry.html">8. Coordination Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry I</a>
+                <ul>
+                    <li><a href="nomenclature.html">1. Nomenclature &amp; Functional Groups</a></li>
+                    <li><a href="stereochemistry.html">2. Stereochemistry &amp; Isomerism</a></li>
+                    <li><a href="substitution-elimination.html">3. Substitution and Elimination</a></li>
+                    <li><a href="organic-structure.html">4. Structure &amp; Bonding in Organic Molecules</a></li>
+                    <li><a href="alkenes.html">5. Alkenes</a></li>
+                    <li><a href="alkynes.html">6. Alkynes</a></li>
+                    <li><a href="alcohols-ethers.html">7. Alcohols &amp; Ethers</a></li>
+                    <li><a href="spectroscopy.html">8. Spectroscopy</a></li>
+                    <li><a href="polymers.html">9. Polymers</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry II</a>
+                <ul>
+                    <li><a href="aromatic-chemistry.html">1. Aromatic Chemistry</a></li>
+                    <li><a href="aldehydes-ketones.html">2. Aldehydes &amp; Ketones</a></li>
+                    <li><a href="carboxylic-acids.html">3. Carboxylic Acids &amp; Derivatives</a></li>
+                    <li><a href="enolates-aldol.html">4. Enolates &amp; the Aldol Reaction</a></li>
+                    <li><a href="amines.html">5. Amines</a></li>
+                    <li><a href="conjugated-systems.html">6. Conjugated Systems &amp; Diels-Alder</a></li>
+                    <li><a href="biomolecules.html">7. Biomolecules</a></li>
+                    <li><a href="synthesis-strategy.html">8. Synthesis Strategy &amp; Retrosynthesis</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Reference</a>
+                <ul>
+                    <li><a href="formula-sheet.html">Formula Sheet</a></li>
+                    <li><a href="periodic-table.html">Periodic Table</a></li>
+                    <li><a href="chemistnate-explains.html">ChemistNate Explains</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="content">
+        <div class="breadcrumbs">
+            Home / General Chemistry I / Descriptive Chemistry of the Elements
+        </div>
+
+        <h1>Descriptive Chemistry of the Elements</h1>
+
+
+        <p>General chemistry is not just equations and energy — it is also the behaviour of the elements themselves. This page tours the periodic table group by group: what each family does, and the reactions that define it.</p>
+
+        <h2>Group 1: Alkali Metals</h2>
+        <p>Li, Na, K, Rb, Cs — soft metals with a single valence electron, which they lose readily to form M<sup>+</sup> ions. They are the most reactive metals: they tarnish in air, react violently with water, and must be stored under oil. Reactivity increases down the group, as the outer electron gets farther from the nucleus and easier to remove.</p>
+        $$2\text{M} + 2\text{H}_2\text{O} \rightarrow 2\text{MOH} + \text{H}_2$$
+        <p>Potassium reacts so vigorously that the hydrogen gas it produces catches fire, burning with a lilac flame. The hydroxides formed (NaOH, KOH) are strong bases.</p>
+
+        <h2>Group 2: Alkaline Earth Metals</h2>
+        <p>Be, Mg, Ca, Sr, Ba — two valence electrons, forming M<sup>2+</sup> ions. They are reactive, but less so than the alkali metals, and reactivity again increases down the group. Magnesium reacts slowly with cold water but vigorously with steam; calcium reacts steadily with cold water:</p>
+        $$\text{Ca} + 2\text{H}_2\text{O} \rightarrow \text{Ca(OH)}_2 + \text{H}_2$$
+        <p>Calcium compounds are everywhere in everyday life: CaCO<sub>3</sub> in limestone and shells, Ca(OH)<sub>2</sub> (slaked lime) in cement. Magnesium burns with a blinding white light: $$2\text{Mg} + \text{O}_2 \rightarrow 2\text{MgO}$$</p>
+
+        <h2>Group 17: Halogens</h2>
+        <p>F<sub>2</sub>, Cl<sub>2</sub>, Br<sub>2</sub>, I<sub>2</sub> — one electron short of a full octet, so they gain an electron to form X<sup>&minus;</sup> ions and are powerful oxidizing agents. Fluorine is the most reactive element of all. Unlike the metals, halogen reactivity <em>decreases</em> down the group: the incoming electron joins a shell farther from the nucleus and is less strongly attracted.</p>
+        <p>That trend drives displacement reactions — a more reactive halogen displaces a less reactive one from its salt:</p>
+        $$\text{Cl}_2 + 2\text{NaBr} \rightarrow 2\text{NaCl} + \text{Br}_2$$
+        <p>Chlorine displaces bromine, but bromine cannot displace chlorine. Halogens also react directly with hydrogen and with metals:</p>
+        $$\text{H}_2 + \text{Cl}_2 \rightarrow 2\text{HCl} \qquad 2\text{Na} + \text{Cl}_2 \rightarrow 2\text{NaCl}$$
+
+        <h2>Group 18: Noble Gases</h2>
+        <p>He, Ne, Ar, Kr, Xe, Rn — full valence shells, so they almost never react. No ordinary chemical reaction can force them to gain, lose, or share electrons under normal conditions. That inertness is their use: argon blankets welding arcs and fills light bulbs so the filament does not oxidize, helium lifts balloons and cools superconducting magnets without burning, neon glows orange-red in discharge tubes for signs. Only the heaviest noble gases (krypton, xenon) form any compounds at all, and only with fluorine or oxygen under extreme conditions — e.g., XeF<sub>4</sub>.</p>
+
+        <h2>Transition Metals</h2>
+        <p>The d-block metals (Sc through Zn and below) are defined by their partly filled d subshells, which give them three signature behaviours:</p>
+        <ul>
+            <li><strong>Variable oxidation states:</strong> iron is Fe<sup>2+</sup> or Fe<sup>3+</sup>; manganese ranges from Mn<sup>2+</sup> to Mn<sup>7+</sup> (in MnO<sub>4</sub><sup>&minus;</sup>).</li>
+            <li><strong>Coloured compounds:</strong> the colours of CuSO<sub>4</sub> (blue), KMnO<sub>4</sub> (purple), and K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub> (orange) come from d–d electron transitions.</li>
+            <li><strong>Catalysis:</strong> iron catalyzes the Haber process for ammonia; platinum and rhodium catalyze reactions in car exhaust systems; vanadium(V) oxide catalyzes the Contact process for sulfuric acid.</li>
+        </ul>
+        <p>Typical transition-metal reactions include displacement of hydrogen from acids and the reduction of iron ore in a blast furnace:</p>
+        $$\text{Fe} + 2\text{HCl} \rightarrow \text{FeCl}_2 + \text{H}_2 \qquad \text{Fe}_2\text{O}_3 + 3\text{CO} \rightarrow 2\text{Fe} + 3\text{CO}_2$$
+
+        <h2>Trends: Across a Period vs Down a Group</h2>
+        <p>Most group behaviour follows two trends. Across a period (left to right), the atoms gain protons, the effective nuclear charge rises, and atoms get smaller, hold their electrons more tightly, and become less metallic — metals give way to nonmetals. Down a group, each step adds a shell, so atoms get larger and their outer electrons get easier to remove: metals get more reactive, while nonmetals (the halogens) get less reactive, because an incoming electron is less strongly attracted. The alkali metals and the halogens are mirror images of each other: reactivity rises down Group 1 and falls down Group 17, both for the same reason — distance from the nucleus.</p>
+
+        <h2>Practice Problems</h2>
+        <ol>
+            <li>Write the balanced equation for potassium reacting with water, and name the products.</li>
+            <li>Magnesium reacts with dilute hydrochloric acid. Write the balanced equation and name the gas produced.</li>
+            <li>Write the balanced equation for chlorine displacing iodine from potassium iodide solution.</li>
+            <li>Argon is used to fill light bulbs. Explain why argon, rather than oxygen or nitrogen, is chosen.</li>
+        </ol>
+        <p><strong>Answers:</strong> 1. 2K + 2H<sub>2</sub>O &rarr; 2KOH + H<sub>2</sub>; potassium hydroxide and hydrogen &nbsp; 2. Mg + 2HCl &rarr; MgCl<sub>2</sub> + H<sub>2</sub>; hydrogen gas &nbsp; 3. Cl<sub>2</sub> + 2KI &rarr; 2KCl + I<sub>2</sub> &nbsp; 4. Argon is inert (full valence shell) so it will not react with the hot filament; oxygen would oxidize it and burn it out</p>
+        <div class="site-footer">
+            ChemistNate &bull; Released to the <strong>Public Domain</strong>. Feel free to use, share, and build upon these educational resources freely.
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

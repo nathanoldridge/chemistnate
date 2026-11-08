@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChemistNate - Formula Sheet</title>
+
+    <!-- KaTeX for rendering chemical formulas and equations -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ]
+        });">
+    </script>
+
+    <style>
+        /* Classic Lamar University / Paul's Notes color palette and typography */
+        body {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Layout Container */
+        #container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Left Sidebar Navigation */
+        #sidebar {
+            width: 260px;
+            background-color: #f4f4f4;
+            border-right: 1px solid #cccccc;
+            padding: 20px 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        #sidebar h2 {
+            font-size: 16px;
+            color: #8b0000; /* Academic maroon accent */
+            margin-top: 0;
+            border-bottom: 2px solid #8b0000;
+            padding-bottom: 5px;
+        }
+
+        #sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        #sidebar li {
+            margin-bottom: 8px;
+        }
+
+        #sidebar li ul {
+            padding-left: 15px;
+            margin-top: 5px;
+        }
+
+        #sidebar a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        #sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        #sidebar .active {
+            font-weight: bold;
+            color: #000000;
+        }
+
+        /* Main Content Pane */
+        #content {
+            flex-grow: 1;
+            padding: 30px 40px;
+            max-width: 800px;
+            box-sizing: border-box;
+        }
+
+        /* Header / Breadcrumbs */
+        .breadcrumbs {
+            font-size: 13px;
+            color: #555555;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumbs a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        h1 {
+            font-family: "Georgia", Times, serif;
+            color: #8b0000;
+            font-size: 28px;
+            margin-top: 0;
+            border-bottom: 1px solid #dddddd;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-family: "Georgia", Times, serif;
+            color: #333333;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+
+        /* Course Directory Grid / List */
+        .course-card {
+            background-color: #f9f9f9;
+            border: 1px solid #cccccc;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+
+        .course-card h3 {
+            font-family: "Georgia", Times, serif;
+            color: #004b87;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .course-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .course-card li {
+            margin-bottom: 5px;
+        }
+
+        /* Callout Box */
+        .notice-box {
+            background-color: #fffdf0;
+            border-left: 4px solid #d4af37;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 50px;
+            border-top: 1px solid #cccccc;
+            padding-top: 15px;
+            font-size: 12px;
+            color: #666666;
+            text-align: center;
+        }
+            /* Worked Example Callout */
+        .example {
+            background-color: #f9f9f9;
+            border-left: 4px solid #004b87;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+        .example strong:first-child { color: #004b87; }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <!-- Left Navigation Sidebar -->
+    <div id="sidebar">
+        <h2>ChemistNate</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sch3u.html">SCH3U — Grade 11 Chemistry (Ontario)</a></li>
+            <li><a href="sch4u.html">SCH4U — Grade 12 Chemistry (Ontario)</a></li>
+            <li><a href="#">General Chemistry I</a>
+                <ul>
+                    <li><a href="matter-measurement.html">Foundations: Matter and Measurement</a></li>
+                    <li><a href="stoichiometry.html">1. Stoichiometry</a></li>
+                    <li><a href="aqueous-reactions.html">2. Aqueous Reactions</a></li>
+                    <li><a href="#">3. Chemical Equations</a>
+                        <ul>
+                            <li><a href="balancing-equations.html">3.1 Balancing Equations</a></li>
+                            <li><a href="synthesis-reactions.html">3.2 Synthesis Reactions</a></li>
+                            <li><a href="decomposition-reactions.html">3.3 Decomposition Reactions</a></li>
+                            <li><a href="combustion-reactions.html">3.4 Combustion Reactions</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="redox-reactions.html">Redox Reactions</a></li>
+                    <li><a href="thermochemistry.html">4. Thermochemistry</a></li>
+                    <li><a href="atomic-structure.html">5. Atomic Structure</a></li>
+                    <li><a href="electronic-structure.html">6. Electronic Structure &amp; Periodic Trends</a></li>
+                    <li><a href="chemical-bonding.html">7. Chemical Bonding &amp; Molecular Geometry</a></li>
+                    <li><a href="molecular-orbital-theory.html">Molecular Orbital Theory</a></li>
+                    <li><a href="inorganic-nomenclature.html">Inorganic Nomenclature</a></li>
+                    <li><a href="gases.html">8. Gases</a></li>
+                    <li><a href="liquids-solids.html">9. Liquids, Solids &amp; Intermolecular Forces</a></li>
+                    <li><a href="solids-crystal-structures.html">Solids and Crystal Structures</a></li>
+                    <li><a href="solutions-colligative.html">10. Solutions &amp; Colligative Properties</a></li>
+                    <li><a href="solutions-advanced.html">Solutions: Advanced Topics</a></li>
+                    <li><a href="atmospheric-chemistry.html">11. Gases &amp; Atmospheric Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">General Chemistry II</a>
+                <ul>
+                    <li><a href="kinetics.html">1. Reaction Kinetics &amp; Rate Laws</a></li>
+                    <li><a href="reaction-mechanisms.html">Reaction Mechanisms and Catalysis</a></li>
+                    <li><a href="equilibrium.html">2. Chemical Equilibrium</a></li>
+                    <li><a href="acids-bases.html">3. Acids, Bases, and Buffers</a></li>
+                    <li><a href="acid-base-titrations.html">Acid–Base Titrations</a></li>
+                    <li><a href="electrochemistry.html">4. Electrochemistry &amp; Redox Cells</a></li>
+                    <li><a href="thermodynamics.html">5. Thermodynamics</a></li>
+                    <li><a href="solubility-ksp.html">6. Solubility &amp; the Solubility Product</a></li>
+                    <li><a href="nuclear-chemistry.html">7. Nuclear Chemistry</a></li>
+                    <li><a href="coordination-chemistry.html">8. Coordination Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry I</a>
+                <ul>
+                    <li><a href="nomenclature.html">1. Nomenclature &amp; Functional Groups</a></li>
+                    <li><a href="stereochemistry.html">2. Stereochemistry &amp; Isomerism</a></li>
+                    <li><a href="substitution-elimination.html">3. Substitution and Elimination</a></li>
+                    <li><a href="organic-structure.html">4. Structure &amp; Bonding in Organic Molecules</a></li>
+                    <li><a href="alkenes.html">5. Alkenes</a></li>
+                    <li><a href="alkynes.html">6. Alkynes</a></li>
+                    <li><a href="alcohols-ethers.html">7. Alcohols &amp; Ethers</a></li>
+                    <li><a href="spectroscopy.html">8. Spectroscopy</a></li>
+                    <li><a href="polymers.html">9. Polymers</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry II</a>
+                <ul>
+                    <li><a href="aromatic-chemistry.html">1. Aromatic Chemistry</a></li>
+                    <li><a href="aldehydes-ketones.html">2. Aldehydes &amp; Ketones</a></li>
+                    <li><a href="carboxylic-acids.html">3. Carboxylic Acids &amp; Derivatives</a></li>
+                    <li><a href="enolates-aldol.html">4. Enolates &amp; the Aldol Reaction</a></li>
+                    <li><a href="amines.html">5. Amines</a></li>
+                    <li><a href="conjugated-systems.html">6. Conjugated Systems &amp; Diels-Alder</a></li>
+                    <li><a href="biomolecules.html">7. Biomolecules</a></li>
+                    <li><a href="synthesis-strategy.html">8. Synthesis Strategy &amp; Retrosynthesis</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Reference</a>
+                <ul>
+                    <li><a href="formula-sheet.html" class="active">Formula Sheet</a></li>
+                    <li><a href="periodic-table.html">Periodic Table</a></li>
+                    <li><a href="chemistnate-explains.html">ChemistNate Explains</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="content">
+        <div class="breadcrumbs">
+            Home / Reference / Formula Sheet
+        </div>
+
+        <h1>Formula Sheet</h1>
+
+
+        <style>
+        .fs-table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+        .fs-table th, .fs-table td { border: 1px solid #cccccc; padding: 6px 10px; text-align: left; }
+        .fs-table th { background-color: #f4f4f4; }
+        </style>
+        <p>Every constant and equation used on this site, in one place. Print it, bookmark it, or keep it open beside your homework.</p>
+
+        <h2>Physical Constants</h2>
+        <table class="fs-table">
+            <tr><th>Constant</th><th>Symbol</th><th>Value</th></tr>
+            <tr><td>Avogadro's number</td><td>$N_A$</td><td>$6.022 \times 10^{23}\ \text{mol}^{-1}$</td></tr>
+            <tr><td>Gas constant</td><td>$R$</td><td>$8.314\ \text{J/mol·K} = 0.08206\ \text{L·atm/mol·K}$</td></tr>
+            <tr><td>Planck's constant</td><td>$h$</td><td>$6.626 \times 10^{-34}\ \text{J·s}$</td></tr>
+            <tr><td>Speed of light</td><td>$c$</td><td>$3.00 \times 10^8\ \text{m/s}$</td></tr>
+            <tr><td>Elementary charge</td><td>$e$</td><td>$1.602 \times 10^{-19}\ \text{C}$</td></tr>
+            <tr><td>Faraday constant</td><td>$F$</td><td>$96{,}485\ \text{C/mol}$</td></tr>
+            <tr><td>Boltzmann constant</td><td>$k_B$</td><td>$1.381 \times 10^{-23}\ \text{J/K}$</td></tr>
+            <tr><td>Electron mass</td><td>$m_e$</td><td>$9.109 \times 10^{-31}\ \text{kg}$</td></tr>
+            <tr><td>Proton mass</td><td>$m_p$</td><td>$1.673 \times 10^{-27}\ \text{kg}$</td></tr>
+            <tr><td>Neutron mass</td><td>$m_n$</td><td>$1.675 \times 10^{-27}\ \text{kg}$</td></tr>
+            <tr><td>Atomic mass unit</td><td>$1\ \text{amu}$</td><td>$1.6605 \times 10^{-27}\ \text{kg}$</td></tr>
+            <tr><td>Rydberg constant</td><td>$R_H$</td><td>$1.097 \times 10^7\ \text{m}^{-1}$ ($2.18 \times 10^{-18}$ J)</td></tr>
+            <tr><td>Ion product of water (25 °C)</td><td>$K_w$</td><td>$1.0 \times 10^{-14}$</td></tr>
+            <tr><td>Standard pressure</td><td>$1\ \text{atm}$</td><td>$101.325\ \text{kPa} = 760\ \text{mmHg} = 760\ \text{torr}$</td></tr>
+            <tr><td>Absolute zero</td><td>$0\ \text{K}$</td><td>$-273.15\ \text{°C}$</td></tr>
+        </table>
+
+        <h2>Unit Conversions</h2>
+        <table class="fs-table">
+            <tr><th>Conversion</th><th>Relation</th></tr>
+            <tr><td>Temperature</td><td>$K = \text{°C} + 273.15$</td></tr>
+            <tr><td>Length</td><td>$1\ \text{Å} = 10^{-10}\ \text{m}$; $1\ \text{nm} = 10^{-9}\ \text{m}$</td></tr>
+            <tr><td>Volume</td><td>$1\ \text{L} = 1000\ \text{mL} = 1000\ \text{cm}^3$</td></tr>
+            <tr><td>Energy</td><td>$1\ \text{cal} = 4.184\ \text{J}$; $1\ \text{eV} = 1.602 \times 10^{-19}\ \text{J}$</td></tr>
+            <tr><td>Pressure</td><td>$1\ \text{atm} = 101.325\ \text{kPa} = 760\ \text{mmHg}$</td></tr>
+            <tr><td>Mass</td><td>$1\ \text{amu} = 1.6605 \times 10^{-27}\ \text{kg}$</td></tr>
+        </table>
+
+        <h2>Stoichiometry</h2>
+        <table class="fs-table">
+            <tr><th>Equation</th><th>Use</th></tr>
+            <tr><td>$$n = \frac{m}{M}$$</td><td>Moles from mass (M = molar mass)</td></tr>
+            <tr><td>$$\text{Percent yield} = \frac{\text{actual yield}}{\text{theoretical yield}} \times 100\%$$</td><td>Reaction efficiency</td></tr>
+            <tr><td>$$M_1V_1 = M_2V_2$$</td><td>Dilution</td></tr>
+            <tr><td>$$\text{Average mass} = \sum (\text{fraction} \times \text{isotope mass})$$</td><td>Average atomic mass</td></tr>
+        </table>
+
+        <h2>Gases</h2>
+        <table class="fs-table">
+            <tr><th>Equation</th><th>Use</th></tr>
+            <tr><td>$$PV = nRT$$</td><td>Ideal gas law</td></tr>
+            <tr><td>$$\frac{P_1V_1}{T_1} = \frac{P_2V_2}{T_2}$$</td><td>Combined gas law</td></tr>
+            <tr><td>$$P_{\text{total}} = P_1 + P_2 + \cdots$$</td><td>Dalton's law of partial pressures</td></tr>
+            <tr><td>$$\frac{\text{rate}_1}{\text{rate}_2} = \sqrt{\frac{M_2}{M_1}}$$</td><td>Graham's law of effusion</td></tr>
+        </table>
+
+        <h2>Thermochemistry and Thermodynamics</h2>
+        <table class="fs-table">
+            <tr><th>Equation</th><th>Use</th></tr>
+            <tr><td>$$q = mc\Delta T$$</td><td>Heat from a temperature change</td></tr>
+            <tr><td>$$\Delta H^\circ_{rxn} = \sum n\,\Delta H^\circ_f(\text{products}) - \sum n\,\Delta H^\circ_f(\text{reactants})$$</td><td>Standard enthalpy of reaction</td></tr>
+            <tr><td>$$\Delta G = \Delta H - T\Delta S$$</td><td>Gibbs free energy (spontaneity)</td></tr>
+            <tr><td>$$\Delta G^\circ = -RT \ln K$$</td><td>Free energy and the equilibrium constant</td></tr>
+        </table>
+
+        <h2>Kinetics</h2>
+        <table class="fs-table">
+            <tr><th>Equation</th><th>Use</th></tr>
+            <tr><td>$$\text{rate} = k[\text{A}]^m[\text{B}]^n$$</td><td>Rate law (orders from experiment)</td></tr>
+            <tr><td>$$t_{1/2} = \frac{0.693}{k}$$</td><td>Half-life, first-order reactions</td></tr>
+            <tr><td>$$k = Ae^{-E_a/RT}$$</td><td>Arrhenius equation</td></tr>
+            <tr><td>$$\ln\frac{k_2}{k_1} = -\frac{E_a}{R}\left(\frac{1}{T_2} - \frac{1}{T_1}\right)$$</td><td>Rate constants at two temperatures</td></tr>
+        </table>
+
+        <h2>Equilibrium</h2>
+        <table class="fs-table">
+            <tr><th>Equation</th><th>Use</th></tr>
+            <tr><td>$$K_{eq} = \frac{[\text{C}]^c[\text{D}]^d}{[\text{A}]^a[\text{B}]^b}$$</td><td>Equilibrium constant</td></tr>
+            <tr><td>$$K_{sp} = [\text{cation}]^a[\text{anion}]^b$$</td><td>Solubility product (solids omitted)</td></tr>
+            <tr><td>$$\Delta G^\circ = -RT \ln K$$</td><td>Free energy and K</td></tr>
+        </table>
+
+        <h2>Acids and Bases</h2>
+        <table class="fs-table">
+            <tr><th>Equation</th><th>Use</th></tr>
+            <tr><td>$$\text{pH} = -\log[\text{H}_3\text{O}^+] \qquad \text{pOH} = -\log[\text{OH}^-]$$</td><td>pH and pOH</td></tr>
+            <tr><td>$$\text{pH} + \text{pOH} = 14.00 \quad (25\,^\circ\text{C})$$</td><td>pH–pOH relation</td></tr>
+            <tr><td>$$K_a \cdot K_b = K_w$$</td><td>Conjugate acid–base pairs</td></tr>
+            <tr><td>$$\text{pH} = \text{p}K_a + \log\frac{[\text{A}^-]}{[\text{HA}]}$$</td><td>Henderson–Hasselbalch (buffers)</td></tr>
+        </table>
+
+        <h2>Electrochemistry</h2>
+        <table class="fs-table">
+            <tr><th>Equation</th><th>Use</th></tr>
+            <tr><td>$$E^\circ_{\text{cell}} = E^\circ_{\text{cathode}} - E^\circ_{\text{anode}}$$</td><td>Standard cell potential</td></tr>
+            <tr><td>$$\Delta G^\circ = -nFE^\circ$$</td><td>Free energy from cell potential</td></tr>
+            <tr><td>$$E = E^\circ - \frac{0.0592}{n}\log Q \quad (25\,^\circ\text{C})$$</td><td>Nernst equation</td></tr>
+        </table>
+
+        <h2>Solutions</h2>
+        <table class="fs-table">
+            <tr><th>Equation</th><th>Use</th></tr>
+            <tr><td>$$M = \frac{n_{\text{solute}}}{V_{\text{solution (L)}}} \qquad m = \frac{n_{\text{solute}}}{\text{kg solvent}}$$</td><td>Molarity and molality</td></tr>
+            <tr><td>$$\Delta T_f = iK_f m \qquad \Delta T_b = iK_b m \qquad \pi = iMRT$$</td><td>Colligative properties</td></tr>
+            <tr><td>$$C = k_H P$$</td><td>Henry's law (gas solubility)</td></tr>
+            <tr><td>$$P = X \cdot P^\circ$$</td><td>Raoult's law (vapour pressure)</td></tr>
+        </table>
+
+        <div class="site-footer">
+            ChemistNate &bull; Released to the <strong>Public Domain</strong>. Feel free to use, share, and build upon these educational resources freely.
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

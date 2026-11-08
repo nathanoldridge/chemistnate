@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChemistNate - Molecular Orbital Theory</title>
+
+    <!-- KaTeX for rendering chemical formulas and equations -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ]
+        });">
+    </script>
+
+    <style>
+        /* Classic Lamar University / Paul's Notes color palette and typography */
+        body {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Layout Container */
+        #container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Left Sidebar Navigation */
+        #sidebar {
+            width: 260px;
+            background-color: #f4f4f4;
+            border-right: 1px solid #cccccc;
+            padding: 20px 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        #sidebar h2 {
+            font-size: 16px;
+            color: #8b0000; /* Academic maroon accent */
+            margin-top: 0;
+            border-bottom: 2px solid #8b0000;
+            padding-bottom: 5px;
+        }
+
+        #sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        #sidebar li {
+            margin-bottom: 8px;
+        }
+
+        #sidebar li ul {
+            padding-left: 15px;
+            margin-top: 5px;
+        }
+
+        #sidebar a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        #sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        #sidebar .active {
+            font-weight: bold;
+            color: #000000;
+        }
+
+        /* Main Content Pane */
+        #content {
+            flex-grow: 1;
+            padding: 30px 40px;
+            max-width: 800px;
+            box-sizing: border-box;
+        }
+
+        /* Header / Breadcrumbs */
+        .breadcrumbs {
+            font-size: 13px;
+            color: #555555;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumbs a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        h1 {
+            font-family: "Georgia", Times, serif;
+            color: #8b0000;
+            font-size: 28px;
+            margin-top: 0;
+            border-bottom: 1px solid #dddddd;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-family: "Georgia", Times, serif;
+            color: #333333;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+
+        /* Course Directory Grid / List */
+        .course-card {
+            background-color: #f9f9f9;
+            border: 1px solid #cccccc;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+
+        .course-card h3 {
+            font-family: "Georgia", Times, serif;
+            color: #004b87;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .course-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .course-card li {
+            margin-bottom: 5px;
+        }
+
+        /* Callout Box */
+        .notice-box {
+            background-color: #fffdf0;
+            border-left: 4px solid #d4af37;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 50px;
+            border-top: 1px solid #cccccc;
+            padding-top: 15px;
+            font-size: 12px;
+            color: #666666;
+            text-align: center;
+        }
+            /* Worked Example Callout */
+        .example {
+            background-color: #f9f9f9;
+            border-left: 4px solid #004b87;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+        .example strong:first-child { color: #004b87; }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <!-- Left Navigation Sidebar -->
+    <div id="sidebar">
+        <h2>ChemistNate</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sch3u.html">SCH3U — Grade 11 Chemistry (Ontario)</a></li>
+            <li><a href="sch4u.html">SCH4U — Grade 12 Chemistry (Ontario)</a></li>
+            <li><a href="#">General Chemistry I</a>
+                <ul>
+                    <li><a href="matter-measurement.html">Foundations: Matter and Measurement</a></li>
+                    <li><a href="stoichiometry.html">1. Stoichiometry</a></li>
+                    <li><a href="aqueous-reactions.html">2. Aqueous Reactions</a></li>
+                    <li><a href="#">3. Chemical Equations</a>
+                        <ul>
+                            <li><a href="balancing-equations.html">3.1 Balancing Equations</a></li>
+                            <li><a href="synthesis-reactions.html">3.2 Synthesis Reactions</a></li>
+                            <li><a href="decomposition-reactions.html">3.3 Decomposition Reactions</a></li>
+                            <li><a href="combustion-reactions.html">3.4 Combustion Reactions</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="redox-reactions.html">Redox Reactions</a></li>
+                    <li><a href="thermochemistry.html">4. Thermochemistry</a></li>
+                    <li><a href="atomic-structure.html">5. Atomic Structure</a></li>
+                    <li><a href="electronic-structure.html">6. Electronic Structure &amp; Periodic Trends</a></li>
+                    <li><a href="chemical-bonding.html">7. Chemical Bonding &amp; Molecular Geometry</a></li>
+                    <li><a href="molecular-orbital-theory.html" class="active">Molecular Orbital Theory</a></li>
+                    <li><a href="inorganic-nomenclature.html">Inorganic Nomenclature</a></li>
+                    <li><a href="gases.html">8. Gases</a></li>
+                    <li><a href="liquids-solids.html">9. Liquids, Solids &amp; Intermolecular Forces</a></li>
+                    <li><a href="solids-crystal-structures.html">Solids and Crystal Structures</a></li>
+                    <li><a href="solutions-colligative.html">10. Solutions &amp; Colligative Properties</a></li>
+                    <li><a href="solutions-advanced.html">Solutions: Advanced Topics</a></li>
+                    <li><a href="atmospheric-chemistry.html">11. Gases &amp; Atmospheric Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">General Chemistry II</a>
+                <ul>
+                    <li><a href="kinetics.html">1. Reaction Kinetics &amp; Rate Laws</a></li>
+                    <li><a href="reaction-mechanisms.html">Reaction Mechanisms and Catalysis</a></li>
+                    <li><a href="equilibrium.html">2. Chemical Equilibrium</a></li>
+                    <li><a href="acids-bases.html">3. Acids, Bases, and Buffers</a></li>
+                    <li><a href="acid-base-titrations.html">Acid–Base Titrations</a></li>
+                    <li><a href="electrochemistry.html">4. Electrochemistry &amp; Redox Cells</a></li>
+                    <li><a href="thermodynamics.html">5. Thermodynamics</a></li>
+                    <li><a href="solubility-ksp.html">6. Solubility &amp; the Solubility Product</a></li>
+                    <li><a href="nuclear-chemistry.html">7. Nuclear Chemistry</a></li>
+                    <li><a href="coordination-chemistry.html">8. Coordination Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry I</a>
+                <ul>
+                    <li><a href="nomenclature.html">1. Nomenclature &amp; Functional Groups</a></li>
+                    <li><a href="stereochemistry.html">2. Stereochemistry &amp; Isomerism</a></li>
+                    <li><a href="substitution-elimination.html">3. Substitution and Elimination</a></li>
+                    <li><a href="organic-structure.html">4. Structure &amp; Bonding in Organic Molecules</a></li>
+                    <li><a href="alkenes.html">5. Alkenes</a></li>
+                    <li><a href="alkynes.html">6. Alkynes</a></li>
+                    <li><a href="alcohols-ethers.html">7. Alcohols &amp; Ethers</a></li>
+                    <li><a href="spectroscopy.html">8. Spectroscopy</a></li>
+                    <li><a href="polymers.html">9. Polymers</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry II</a>
+                <ul>
+                    <li><a href="aromatic-chemistry.html">1. Aromatic Chemistry</a></li>
+                    <li><a href="aldehydes-ketones.html">2. Aldehydes &amp; Ketones</a></li>
+                    <li><a href="carboxylic-acids.html">3. Carboxylic Acids &amp; Derivatives</a></li>
+                    <li><a href="enolates-aldol.html">4. Enolates &amp; the Aldol Reaction</a></li>
+                    <li><a href="amines.html">5. Amines</a></li>
+                    <li><a href="conjugated-systems.html">6. Conjugated Systems &amp; Diels-Alder</a></li>
+                    <li><a href="biomolecules.html">7. Biomolecules</a></li>
+                    <li><a href="synthesis-strategy.html">8. Synthesis Strategy &amp; Retrosynthesis</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Reference</a>
+                <ul>
+                    <li><a href="formula-sheet.html">Formula Sheet</a></li>
+                    <li><a href="periodic-table.html">Periodic Table</a></li>
+                    <li><a href="chemistnate-explains.html">ChemistNate Explains</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="content">
+        <div class="breadcrumbs">
+            Home / General Chemistry I / Molecular Orbital Theory
+        </div>
+
+        <h1>Molecular Orbital Theory</h1>
+
+
+        <p>Lewis structures and VSEPR tell you a molecule's shape, but they cannot explain why oxygen is magnetic or why He<sub>2</sub> does not exist. Molecular orbital (MO) theory can. It treats electrons as belonging to the whole molecule, not to one atom or one bond.</p>
+
+        <h2>What Is a Molecular Orbital?</h2>
+        <p>When two atoms bond, their atomic orbitals combine to form molecular orbitals that spread over both nuclei. Two atomic orbitals combine to give two molecular orbitals:</p>
+        <ul>
+            <li><strong>Bonding orbital (&sigma;, &pi;):</strong> lower in energy than the atomic orbitals. Electron density builds up <em>between</em> the nuclei, holding them together.</li>
+            <li><strong>Antibonding orbital (&sigma;*, &pi;*):</strong> higher in energy than the atomic orbitals. It has a node between the nuclei, so electron density there is zero — electrons in this orbital weaken the bond.</li>
+        </ul>
+        <p>The same filling rules apply as for atoms: orbitals fill lowest-energy first (Aufbau), one electron per orbital before pairing (Hund's rule), and at most two electrons per orbital with opposite spins (Pauli exclusion).</p>
+
+        <h2>MO Energy-Level Diagrams for Second-Period Diatomics</h2>
+        <p>For a second-period diatomic molecule, the valence molecular orbitals in order of increasing energy are built from the 2s and 2p atomic orbitals: &sigma;<sub>2s</sub>, &sigma;*<sub>2s</sub>, then the 2p-derived set, then &sigma;*<sub>2p</sub>. But the order of the 2p-derived orbitals flips partway across the period:</p>
+        <ul>
+            <li><strong>B<sub>2</sub>, C<sub>2</sub>, N<sub>2</sub>:</strong> the &pi;<sub>2p</sub> orbitals sit <em>below</em> &sigma;<sub>2p</sub>. Order: &sigma;<sub>2s</sub> &lt; &sigma;*<sub>2s</sub> &lt; &pi;<sub>2p</sub> &lt; &sigma;<sub>2p</sub> &lt; &pi;*<sub>2p</sub> &lt; &sigma;*<sub>2p</sub>.</li>
+            <li><strong>O<sub>2</sub>, F<sub>2</sub>:</strong> the &sigma;<sub>2p</sub> orbital sits <em>below</em> the &pi;<sub>2p</sub> orbitals. Order: &sigma;<sub>2s</sub> &lt; &sigma;*<sub>2s</sub> &lt; &sigma;<sub>2p</sub> &lt; &pi;<sub>2p</sub> &lt; &pi;*<sub>2p</sub> &lt; &sigma;*<sub>2p</sub>.</li>
+        </ul>
+        <p>Why the flip? In B<sub>2</sub>, C<sub>2</sub>, and N<sub>2</sub>, the 2s and 2p atomic orbitals are close in energy, so they mix (s–p mixing). This mixing pushes the &sigma;<sub>2p</sub> orbital up in energy, above the &pi;<sub>2p</sub> pair. In O<sub>2</sub> and F<sub>2</sub>, the 2s orbital is much lower in energy than the 2p, so the mixing is negligible and &sigma;<sub>2p</sub> stays below &pi;<sub>2p</sub>.</p>
+        <div class="notice-box">
+            <strong>Remember:</strong> the &pi;<sub>2p</sub> level is actually <em>two</em> orbitals of equal energy (one from each pair of p orbitals), so it holds up to 4 electrons. The same is true of &pi;*<sub>2p</sub>.
+        </div>
+
+        <h2>Bond Order</h2>
+        <p>Bond order measures how strong a bond is — it is the molecular-orbital version of counting single, double, and triple bonds:</p>
+        $$\text{Bond order} = \frac{(\text{bonding electrons}) - (\text{antibonding electrons})}{2}$$
+        <p>A higher bond order means a shorter, stronger bond. A bond order of zero means no bond at all — the molecule does not exist.</p>
+        <div class="example">
+            <strong>Example:</strong> N<sub>2</sub> has 10 valence electrons: (&sigma;<sub>2s</sub>)<sup>2</sup>(&sigma;*<sub>2s</sub>)<sup>2</sup>(&pi;<sub>2p</sub>)<sup>4</sup>(&sigma;<sub>2p</sub>)<sup>2</sup>. Bonding electrons = 8, antibonding = 2:
+            $$\text{Bond order} = \frac{8 - 2}{2} = 3$$
+            A triple bond, matching the Lewis structure — and all electrons are paired, so N<sub>2</sub> is diamagnetic.
+        </div>
+        <div class="example">
+            <strong>Example:</strong> O<sub>2</sub> has 12 valence electrons: (&sigma;<sub>2s</sub>)<sup>2</sup>(&sigma;*<sub>2s</sub>)<sup>2</sup>(&sigma;<sub>2p</sub>)<sup>2</sup>(&pi;<sub>2p</sub>)<sup>4</sup>(&pi;*<sub>2p</sub>)<sup>2</sup>. Bonding electrons = 8, antibonding = 4:
+            $$\text{Bond order} = \frac{8 - 4}{2} = 2$$
+            A double bond, matching the Lewis structure — but the last two electrons go one each into the two &pi;*<sub>2p</sub> orbitals (Hund's rule), so O<sub>2</sub> has <strong>2 unpaired electrons</strong> and is <strong>paramagnetic</strong>. Liquid oxygen is attracted to a magnet, which the Lewis structure alone cannot explain.
+        </div>
+        <div class="example">
+            <strong>Example:</strong> F<sub>2</sub> has 14 valence electrons: (&sigma;<sub>2s</sub>)<sup>2</sup>(&sigma;*<sub>2s</sub>)<sup>2</sup>(&sigma;<sub>2p</sub>)<sup>2</sup>(&pi;<sub>2p</sub>)<sup>4</sup>(&pi;*<sub>2p</sub>)<sup>4</sup>. Bonding electrons = 8, antibonding = 6:
+            $$\text{Bond order} = \frac{8 - 6}{2} = 1$$
+            A single bond, and all electrons paired — F<sub>2</sub> is diamagnetic.
+        </div>
+
+        <h2>Why He<sub>2</sub> Does Not Exist — and Why B<sub>2</sub> Is Magnetic</h2>
+        <p>He<sub>2</sub> would have 4 electrons: (&sigma;<sub>1s</sub>)<sup>2</sup>(&sigma;*<sub>1s</sub>)<sup>2</sup>. Bonding electrons = 2, antibonding = 2:
+        $$\text{Bond order} = \frac{2 - 2}{2} = 0$$
+        The antibonding electrons cancel the bonding ones exactly, so there is no net bond. Two helium atoms simply drift apart.</p>
+        <p>B<sub>2</sub> is the surprise case. It has 6 valence electrons: (&sigma;<sub>2s</sub>)<sup>2</sup>(&sigma;*<sub>2s</sub>)<sup>2</sup>(&pi;<sub>2p</sub>)<sup>2</sup>. Its bond order is $(4 - 2)/2 = 1$, a single bond — but the last two electrons sit one each in the two &pi;<sub>2p</sub> orbitals, so B<sub>2</sub> has <strong>2 unpaired electrons and is paramagnetic</strong>, even though its Lewis structure shows all electrons paired. Only MO theory predicts this.</p>
+
+        <h2>Practice Problems</h2>
+        <ol>
+            <li>Write the MO electron configuration of Li<sub>2</sub>, calculate its bond order, and state whether it is paramagnetic or diamagnetic.</li>
+            <li>C<sub>2</sub> has 8 valence electrons. Calculate its bond order and state whether it is paramagnetic or diamagnetic.</li>
+            <li>O<sub>2</sub><sup>+</sup> has one fewer electron than O<sub>2</sub>. Calculate its bond order and predict how many unpaired electrons it has.</li>
+            <li>Use bond order to explain why Be<sub>2</sub> does not exist as a stable molecule.</li>
+        </ol>
+        <p><strong>Answers:</strong> 1. (&sigma;<sub>2s</sub>)<sup>2</sup>, bond order 1, diamagnetic &nbsp; 2. Bond order 2, diamagnetic (all electrons paired) &nbsp; 3. Bond order 2.5, 1 unpaired electron (paramagnetic) &nbsp; 4. (&sigma;<sub>2s</sub>)<sup>2</sup>(&sigma;*<sub>2s</sub>)<sup>2</sup> gives bond order (2 &minus; 2)/2 = 0, so no bond</p>
+        <div class="site-footer">
+            ChemistNate &bull; Released to the <strong>Public Domain</strong>. Feel free to use, share, and build upon these educational resources freely.
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

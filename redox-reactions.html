@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChemistNate - Redox Reactions</title>
+
+    <!-- KaTeX for rendering chemical formulas and equations -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ]
+        });">
+    </script>
+
+    <style>
+        /* Classic Lamar University / Paul's Notes color palette and typography */
+        body {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Layout Container */
+        #container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Left Sidebar Navigation */
+        #sidebar {
+            width: 260px;
+            background-color: #f4f4f4;
+            border-right: 1px solid #cccccc;
+            padding: 20px 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        #sidebar h2 {
+            font-size: 16px;
+            color: #8b0000; /* Academic maroon accent */
+            margin-top: 0;
+            border-bottom: 2px solid #8b0000;
+            padding-bottom: 5px;
+        }
+
+        #sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        #sidebar li {
+            margin-bottom: 8px;
+        }
+
+        #sidebar li ul {
+            padding-left: 15px;
+            margin-top: 5px;
+        }
+
+        #sidebar a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        #sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        #sidebar .active {
+            font-weight: bold;
+            color: #000000;
+        }
+
+        /* Main Content Pane */
+        #content {
+            flex-grow: 1;
+            padding: 30px 40px;
+            max-width: 800px;
+            box-sizing: border-box;
+        }
+
+        /* Header / Breadcrumbs */
+        .breadcrumbs {
+            font-size: 13px;
+            color: #555555;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumbs a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        h1 {
+            font-family: "Georgia", Times, serif;
+            color: #8b0000;
+            font-size: 28px;
+            margin-top: 0;
+            border-bottom: 1px solid #dddddd;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-family: "Georgia", Times, serif;
+            color: #333333;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+
+        /* Course Directory Grid / List */
+        .course-card {
+            background-color: #f9f9f9;
+            border: 1px solid #cccccc;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+
+        .course-card h3 {
+            font-family: "Georgia", Times, serif;
+            color: #004b87;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .course-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .course-card li {
+            margin-bottom: 5px;
+        }
+
+        /* Callout Box */
+        .notice-box {
+            background-color: #fffdf0;
+            border-left: 4px solid #d4af37;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 50px;
+            border-top: 1px solid #cccccc;
+            padding-top: 15px;
+            font-size: 12px;
+            color: #666666;
+            text-align: center;
+        }
+            /* Worked Example Callout */
+        .example {
+            background-color: #f9f9f9;
+            border-left: 4px solid #004b87;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+        .example strong:first-child { color: #004b87; }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <!-- Left Navigation Sidebar -->
+    <div id="sidebar">
+        <h2>ChemistNate</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sch3u.html">SCH3U — Grade 11 Chemistry (Ontario)</a></li>
+            <li><a href="sch4u.html">SCH4U — Grade 12 Chemistry (Ontario)</a></li>
+            <li><a href="#">General Chemistry I</a>
+                <ul>
+                    <li><a href="matter-measurement.html">Foundations: Matter and Measurement</a></li>
+                    <li><a href="stoichiometry.html">1. Stoichiometry</a></li>
+                    <li><a href="aqueous-reactions.html">2. Aqueous Reactions</a></li>
+                    <li><a href="#">3. Chemical Equations</a>
+                        <ul>
+                            <li><a href="balancing-equations.html">3.1 Balancing Equations</a></li>
+                            <li><a href="synthesis-reactions.html">3.2 Synthesis Reactions</a></li>
+                            <li><a href="decomposition-reactions.html">3.3 Decomposition Reactions</a></li>
+                            <li><a href="combustion-reactions.html">3.4 Combustion Reactions</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="redox-reactions.html" class="active">Redox Reactions</a></li>
+                    <li><a href="thermochemistry.html">4. Thermochemistry</a></li>
+                    <li><a href="atomic-structure.html">5. Atomic Structure</a></li>
+                    <li><a href="electronic-structure.html">6. Electronic Structure &amp; Periodic Trends</a></li>
+                    <li><a href="chemical-bonding.html">7. Chemical Bonding &amp; Molecular Geometry</a></li>
+                    <li><a href="molecular-orbital-theory.html">Molecular Orbital Theory</a></li>
+                    <li><a href="inorganic-nomenclature.html">Inorganic Nomenclature</a></li>
+                    <li><a href="gases.html">8. Gases</a></li>
+                    <li><a href="liquids-solids.html">9. Liquids, Solids &amp; Intermolecular Forces</a></li>
+                    <li><a href="solids-crystal-structures.html">Solids and Crystal Structures</a></li>
+                    <li><a href="solutions-colligative.html">10. Solutions &amp; Colligative Properties</a></li>
+                    <li><a href="solutions-advanced.html">Solutions: Advanced Topics</a></li>
+                    <li><a href="atmospheric-chemistry.html">11. Gases &amp; Atmospheric Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">General Chemistry II</a>
+                <ul>
+                    <li><a href="kinetics.html">1. Reaction Kinetics &amp; Rate Laws</a></li>
+                    <li><a href="reaction-mechanisms.html">Reaction Mechanisms and Catalysis</a></li>
+                    <li><a href="equilibrium.html">2. Chemical Equilibrium</a></li>
+                    <li><a href="acids-bases.html">3. Acids, Bases, and Buffers</a></li>
+                    <li><a href="acid-base-titrations.html">Acid–Base Titrations</a></li>
+                    <li><a href="electrochemistry.html">4. Electrochemistry &amp; Redox Cells</a></li>
+                    <li><a href="thermodynamics.html">5. Thermodynamics</a></li>
+                    <li><a href="solubility-ksp.html">6. Solubility &amp; the Solubility Product</a></li>
+                    <li><a href="nuclear-chemistry.html">7. Nuclear Chemistry</a></li>
+                    <li><a href="coordination-chemistry.html">8. Coordination Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry I</a>
+                <ul>
+                    <li><a href="nomenclature.html">1. Nomenclature &amp; Functional Groups</a></li>
+                    <li><a href="stereochemistry.html">2. Stereochemistry &amp; Isomerism</a></li>
+                    <li><a href="substitution-elimination.html">3. Substitution and Elimination</a></li>
+                    <li><a href="organic-structure.html">4. Structure &amp; Bonding in Organic Molecules</a></li>
+                    <li><a href="alkenes.html">5. Alkenes</a></li>
+                    <li><a href="alkynes.html">6. Alkynes</a></li>
+                    <li><a href="alcohols-ethers.html">7. Alcohols &amp; Ethers</a></li>
+                    <li><a href="spectroscopy.html">8. Spectroscopy</a></li>
+                    <li><a href="polymers.html">9. Polymers</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry II</a>
+                <ul>
+                    <li><a href="aromatic-chemistry.html">1. Aromatic Chemistry</a></li>
+                    <li><a href="aldehydes-ketones.html">2. Aldehydes &amp; Ketones</a></li>
+                    <li><a href="carboxylic-acids.html">3. Carboxylic Acids &amp; Derivatives</a></li>
+                    <li><a href="enolates-aldol.html">4. Enolates &amp; the Aldol Reaction</a></li>
+                    <li><a href="amines.html">5. Amines</a></li>
+                    <li><a href="conjugated-systems.html">6. Conjugated Systems &amp; Diels-Alder</a></li>
+                    <li><a href="biomolecules.html">7. Biomolecules</a></li>
+                    <li><a href="synthesis-strategy.html">8. Synthesis Strategy &amp; Retrosynthesis</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Reference</a>
+                <ul>
+                    <li><a href="formula-sheet.html">Formula Sheet</a></li>
+                    <li><a href="periodic-table.html">Periodic Table</a></li>
+                    <li><a href="chemistnate-explains.html">ChemistNate Explains</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="content">
+        <div class="breadcrumbs">
+            Home / General Chemistry I / Redox Reactions
+        </div>
+
+        <h1>Redox Reactions</h1>
+
+
+        <p>Redox reactions are electron-transfer reactions: one species loses electrons while another gains them. They power batteries, corrosion, and respiration — and once you can track the electrons, you can balance any of them.</p>
+
+        <h2>Oxidation Numbers</h2>
+        <p>An oxidation number is the charge an atom <em>would</em> have if all its bonds were ionic. The rules:</p>
+        <ul>
+            <li>An element on its own is 0 (Na, O<sub>2</sub>, S<sub>8</sub>).</li>
+            <li>A monatomic ion equals its charge (Na<sup>+</sup> is +1, Cl<sup>−</sup> is −1).</li>
+            <li>Fluorine is always −1; oxygen is usually −2 (except in peroxides, −1, and OF<sub>2</sub>, +2); hydrogen is usually +1 (except in metal hydrides, −1).</li>
+            <li>Group 1 metals are +1, Group 2 metals are +2, aluminum is +3.</li>
+            <li>The oxidation numbers in a compound sum to zero; in a polyatomic ion they sum to the ion's charge.</li>
+        </ul>
+        <div class="example">
+            <strong>Example:</strong> Assign oxidation numbers in K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>. K is +1 (Group 1) and O is −2. Let Cr be $x$: $$2(+1) + 2x + 7(-2) = 0 \;\Rightarrow\; 2x = +12 \;\Rightarrow\; x = +6$$ So K is +1, Cr is +6, O is −2.
+        </div>
+
+        <h2>Oxidation, Reduction, and Agents</h2>
+        <p><strong>Oxidation</strong> is loss of electrons (oxidation number increases); <strong>reduction</strong> is gain of electrons (oxidation number decreases). Remember it as OIL RIG — Oxidation Is Loss, Reduction Is Gain. The species that is oxidized is the <strong>reducing agent</strong>; the species that is reduced is the <strong>oxidizing agent</strong>. In Zn + Cu<sup>2+</sup> &rarr; Zn<sup>2+</sup> + Cu, zinc is oxidized (0 &rarr; +2) so it is the reducing agent, and Cu<sup>2+</sup> is reduced (+2 &rarr; 0) so it is the oxidizing agent.</p>
+
+        <h2>Balancing in Acidic Solution — The Half-Reaction Method</h2>
+        <p>Split the reaction into oxidation and reduction half-reactions, then for each: (1) balance atoms other than O and H; (2) balance O with H<sub>2</sub>O; (3) balance H with H<sup>+</sup>; (4) balance charge with electrons; (5) multiply so the electrons cancel, then add the halves back together.</p>
+        <div class="example">
+            <strong>Example:</strong> Balance MnO<sub>4</sub><sup>−</sup> + Fe<sup>2+</sup> &rarr; Mn<sup>2+</sup> + Fe<sup>3+</sup> in acid. Reduction: MnO<sub>4</sub><sup>−</sup> + 8H<sup>+</sup> + 5e<sup>−</sup> &rarr; Mn<sup>2+</sup> + 4H<sub>2</sub>O. Oxidation: Fe<sup>2+</sup> &rarr; Fe<sup>3+</sup> + e<sup>−</sup> (× 5). Adding, the 5 electrons cancel:
+            $$\text{MnO}_4^- + 8\text{H}^+ + 5\text{Fe}^{2+} \rightarrow \text{Mn}^{2+} + 4\text{H}_2\text{O} + 5\text{Fe}^{3+}$$
+            Check: Mn 1 = 1, O 4 = 4, H 8 = 8, Fe 5 = 5. Charge: left −1 + 8 + 10 = +17; right 2 + 15 = +17. Balanced.
+        </div>
+
+        <h2>Balancing in Basic Solution</h2>
+        <p>Balance it as if it were acidic first, then neutralize every H<sup>+</sup> by adding the same number of OH<sup>−</sup> to both sides — each H<sup>+</sup> + OH<sup>−</sup> becomes H<sub>2</sub>O — and cancel any H<sub>2</sub>O that appears on both sides. (Equivalently, balance O with OH<sup>−</sup> and H<sub>2</sub>O directly in each half-reaction.)</p>
+        <div class="example">
+            <strong>Example:</strong> Balance ClO<sup>−</sup> + CrO<sub>2</sub><sup>−</sup> &rarr; Cl<sup>−</sup> + CrO<sub>4</sub><sup>2−</sup> in base. Chlorine goes +1 &rarr; −1 (reduction, gains 2 e<sup>−</sup>); chromium goes +3 &rarr; +6 (oxidation, loses 3 e<sup>−</sup>). Half-reactions in base:
+            $$\text{ClO}^- + \text{H}_2\text{O} + 2\text{e}^- \rightarrow \text{Cl}^- + 2\text{OH}^- \qquad (\times 3)$$
+            $$\text{CrO}_2^- + 4\text{OH}^- \rightarrow \text{CrO}_4^{2-} + 2\text{H}_2\text{O} + 3\text{e}^- \qquad (\times 2)$$
+            Adding and cancelling 6 e<sup>−</sup>, 6 OH<sup>−</sup>, and 3 H<sub>2</sub>O:
+            $$3\text{ClO}^- + 2\text{CrO}_2^- + 2\text{OH}^- \rightarrow 3\text{Cl}^- + 2\text{CrO}_4^{2-} + \text{H}_2\text{O}$$
+            Check: Cl 3 = 3, Cr 2 = 2, O 3 + 4 + 2 = 9 = 8 + 1, H 2 = 2. Charge: left −3 − 2 − 2 = −7; right −3 − 4 = −7. Balanced.
+        </div>
+
+        <h2>Practice Problems</h2>
+        <ol>
+            <li>Assign oxidation numbers to each element in H<sub>2</sub>SO<sub>4</sub>.</li>
+            <li>In Zn + Cu<sup>2+</sup> &rarr; Zn<sup>2+</sup> + Cu, identify what is oxidized, what is reduced, the oxidizing agent, and the reducing agent.</li>
+            <li>Balance in acidic solution: Cr<sub>2</sub>O<sub>7</sub><sup>2−</sup> + Fe<sup>2+</sup> &rarr; Cr<sup>3+</sup> + Fe<sup>3+</sup>.</li>
+            <li>Balance in basic solution: MnO<sub>4</sub><sup>−</sup> + SO<sub>3</sub><sup>2−</sup> &rarr; MnO<sub>2</sub> + SO<sub>4</sub><sup>2−</sup>.</li>
+        </ol>
+        <p><strong>Answers:</strong> 1. H +1, S +6, O −2 &nbsp; 2. Zn oxidized (reducing agent); Cu<sup>2+</sup> reduced (oxidizing agent) &nbsp; 3. Cr<sub>2</sub>O<sub>7</sub><sup>2−</sup> + 14H<sup>+</sup> + 6Fe<sup>2+</sup> &rarr; 2Cr<sup>3+</sup> + 7H<sub>2</sub>O + 6Fe<sup>3+</sup> &nbsp; 4. 2MnO<sub>4</sub><sup>−</sup> + 3SO<sub>3</sub><sup>2−</sup> + H<sub>2</sub>O &rarr; 2MnO<sub>2</sub> + 3SO<sub>4</sub><sup>2−</sup> + 2OH<sup>−</sup></p>
+        <div class="site-footer">
+            ChemistNate &bull; Released to the <strong>Public Domain</strong>. Feel free to use, share, and build upon these educational resources freely.
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

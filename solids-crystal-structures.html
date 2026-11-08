@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChemistNate - Solids and Crystal Structures</title>
+
+    <!-- KaTeX for rendering chemical formulas and equations -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ]
+        });">
+    </script>
+
+    <style>
+        /* Classic Lamar University / Paul's Notes color palette and typography */
+        body {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Layout Container */
+        #container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Left Sidebar Navigation */
+        #sidebar {
+            width: 260px;
+            background-color: #f4f4f4;
+            border-right: 1px solid #cccccc;
+            padding: 20px 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        #sidebar h2 {
+            font-size: 16px;
+            color: #8b0000; /* Academic maroon accent */
+            margin-top: 0;
+            border-bottom: 2px solid #8b0000;
+            padding-bottom: 5px;
+        }
+
+        #sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        #sidebar li {
+            margin-bottom: 8px;
+        }
+
+        #sidebar li ul {
+            padding-left: 15px;
+            margin-top: 5px;
+        }
+
+        #sidebar a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        #sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        #sidebar .active {
+            font-weight: bold;
+            color: #000000;
+        }
+
+        /* Main Content Pane */
+        #content {
+            flex-grow: 1;
+            padding: 30px 40px;
+            max-width: 800px;
+            box-sizing: border-box;
+        }
+
+        /* Header / Breadcrumbs */
+        .breadcrumbs {
+            font-size: 13px;
+            color: #555555;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumbs a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        h1 {
+            font-family: "Georgia", Times, serif;
+            color: #8b0000;
+            font-size: 28px;
+            margin-top: 0;
+            border-bottom: 1px solid #dddddd;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-family: "Georgia", Times, serif;
+            color: #333333;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+
+        /* Course Directory Grid / List */
+        .course-card {
+            background-color: #f9f9f9;
+            border: 1px solid #cccccc;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+
+        .course-card h3 {
+            font-family: "Georgia", Times, serif;
+            color: #004b87;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .course-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .course-card li {
+            margin-bottom: 5px;
+        }
+
+        /* Callout Box */
+        .notice-box {
+            background-color: #fffdf0;
+            border-left: 4px solid #d4af37;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 50px;
+            border-top: 1px solid #cccccc;
+            padding-top: 15px;
+            font-size: 12px;
+            color: #666666;
+            text-align: center;
+        }
+            /* Worked Example Callout */
+        .example {
+            background-color: #f9f9f9;
+            border-left: 4px solid #004b87;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+        .example strong:first-child { color: #004b87; }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <!-- Left Navigation Sidebar -->
+    <div id="sidebar">
+        <h2>ChemistNate</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sch3u.html">SCH3U — Grade 11 Chemistry (Ontario)</a></li>
+            <li><a href="sch4u.html">SCH4U — Grade 12 Chemistry (Ontario)</a></li>
+            <li><a href="#">General Chemistry I</a>
+                <ul>
+                    <li><a href="matter-measurement.html">Foundations: Matter and Measurement</a></li>
+                    <li><a href="stoichiometry.html">1. Stoichiometry</a></li>
+                    <li><a href="aqueous-reactions.html">2. Aqueous Reactions</a></li>
+                    <li><a href="#">3. Chemical Equations</a>
+                        <ul>
+                            <li><a href="balancing-equations.html">3.1 Balancing Equations</a></li>
+                            <li><a href="synthesis-reactions.html">3.2 Synthesis Reactions</a></li>
+                            <li><a href="decomposition-reactions.html">3.3 Decomposition Reactions</a></li>
+                            <li><a href="combustion-reactions.html">3.4 Combustion Reactions</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="redox-reactions.html">Redox Reactions</a></li>
+                    <li><a href="thermochemistry.html">4. Thermochemistry</a></li>
+                    <li><a href="atomic-structure.html">5. Atomic Structure</a></li>
+                    <li><a href="electronic-structure.html">6. Electronic Structure &amp; Periodic Trends</a></li>
+                    <li><a href="chemical-bonding.html">7. Chemical Bonding &amp; Molecular Geometry</a></li>
+                    <li><a href="molecular-orbital-theory.html">Molecular Orbital Theory</a></li>
+                    <li><a href="inorganic-nomenclature.html">Inorganic Nomenclature</a></li>
+                    <li><a href="gases.html">8. Gases</a></li>
+                    <li><a href="liquids-solids.html">9. Liquids, Solids &amp; Intermolecular Forces</a></li>
+                    <li><a href="solids-crystal-structures.html" class="active">Solids and Crystal Structures</a></li>
+                    <li><a href="solutions-colligative.html">10. Solutions &amp; Colligative Properties</a></li>
+                    <li><a href="solutions-advanced.html">Solutions: Advanced Topics</a></li>
+                    <li><a href="atmospheric-chemistry.html">11. Gases &amp; Atmospheric Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">General Chemistry II</a>
+                <ul>
+                    <li><a href="kinetics.html">1. Reaction Kinetics &amp; Rate Laws</a></li>
+                    <li><a href="reaction-mechanisms.html">Reaction Mechanisms and Catalysis</a></li>
+                    <li><a href="equilibrium.html">2. Chemical Equilibrium</a></li>
+                    <li><a href="acids-bases.html">3. Acids, Bases, and Buffers</a></li>
+                    <li><a href="acid-base-titrations.html">Acid–Base Titrations</a></li>
+                    <li><a href="electrochemistry.html">4. Electrochemistry &amp; Redox Cells</a></li>
+                    <li><a href="thermodynamics.html">5. Thermodynamics</a></li>
+                    <li><a href="solubility-ksp.html">6. Solubility &amp; the Solubility Product</a></li>
+                    <li><a href="nuclear-chemistry.html">7. Nuclear Chemistry</a></li>
+                    <li><a href="coordination-chemistry.html">8. Coordination Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry I</a>
+                <ul>
+                    <li><a href="nomenclature.html">1. Nomenclature &amp; Functional Groups</a></li>
+                    <li><a href="stereochemistry.html">2. Stereochemistry &amp; Isomerism</a></li>
+                    <li><a href="substitution-elimination.html">3. Substitution and Elimination</a></li>
+                    <li><a href="organic-structure.html">4. Structure &amp; Bonding in Organic Molecules</a></li>
+                    <li><a href="alkenes.html">5. Alkenes</a></li>
+                    <li><a href="alkynes.html">6. Alkynes</a></li>
+                    <li><a href="alcohols-ethers.html">7. Alcohols &amp; Ethers</a></li>
+                    <li><a href="spectroscopy.html">8. Spectroscopy</a></li>
+                    <li><a href="polymers.html">9. Polymers</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry II</a>
+                <ul>
+                    <li><a href="aromatic-chemistry.html">1. Aromatic Chemistry</a></li>
+                    <li><a href="aldehydes-ketones.html">2. Aldehydes &amp; Ketones</a></li>
+                    <li><a href="carboxylic-acids.html">3. Carboxylic Acids &amp; Derivatives</a></li>
+                    <li><a href="enolates-aldol.html">4. Enolates &amp; the Aldol Reaction</a></li>
+                    <li><a href="amines.html">5. Amines</a></li>
+                    <li><a href="conjugated-systems.html">6. Conjugated Systems &amp; Diels-Alder</a></li>
+                    <li><a href="biomolecules.html">7. Biomolecules</a></li>
+                    <li><a href="synthesis-strategy.html">8. Synthesis Strategy &amp; Retrosynthesis</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Reference</a>
+                <ul>
+                    <li><a href="formula-sheet.html">Formula Sheet</a></li>
+                    <li><a href="periodic-table.html">Periodic Table</a></li>
+                    <li><a href="chemistnate-explains.html">ChemistNate Explains</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="content">
+        <div class="breadcrumbs">
+            Home / General Chemistry I / Solids and Crystal Structures
+        </div>
+
+        <h1>Solids and Crystal Structures</h1>
+
+
+        <p>In a solid, atoms, ions, or molecules lock into fixed positions. In a crystal they lock into a regular, repeating pattern — and that pattern decides the solid's density, strength, and melting point.</p>
+
+        <h2>Unit Cells: Simple Cubic, BCC, and FCC</h2>
+        <p>A crystal is built by repeating one small box, the <strong>unit cell</strong>. Atoms at the corners are shared between eight neighbouring cells, so each corner atom counts as 1/8 of an atom in the cell; an atom in a face centre is shared by two cells and counts as 1/2.</p>
+        <ul>
+            <li><strong>Simple cubic (SC):</strong> atoms only at the corners. Atoms per cell: $8 \times \tfrac{1}{8} = 1$. Coordination number (nearest neighbours): 6. Packing efficiency: 52%.</li>
+            <li><strong>Body-centred cubic (BCC):</strong> corner atoms plus one atom in the centre of the cell. Atoms per cell: $1 + 1 = 2$. Coordination number: 8. Packing efficiency: 68%.</li>
+            <li><strong>Face-centred cubic (FCC):</strong> corner atoms plus one atom in the centre of each face. Atoms per cell: $8 \times \tfrac{1}{8} + 6 \times \tfrac{1}{2} = 4$. Coordination number: 12. Packing efficiency: 74%.</li>
+        </ul>
+        <p>Packing efficiency is the fraction of the cell's volume actually filled by the atoms. FCC (and hexagonal close packing) reaches 74%, the most efficient way spheres can pack — that is why most metals crystallize as FCC or hexagonal close-packed.</p>
+        <div class="example">
+            <strong>Example:</strong> The FCC packing efficiency. In FCC, atoms touch along the face diagonal, so the face diagonal is $4r$ while the edge length is $a$: $a\sqrt{2} = 4r$, so $a = 2\sqrt{2}\,r$. Four atoms per cell occupy $4 \times \tfrac{4}{3}\pi r^3$ of a cell of volume $a^3 = (2\sqrt{2}\,r)^3 = 16\sqrt{2}\,r^3$:
+            $$\text{Efficiency} = \frac{4 \times \frac{4}{3}\pi r^3}{16\sqrt{2}\,r^3} = \frac{\pi}{3\sqrt{2}} = 0.740$$
+            74% of the volume is filled; 26% is empty space.
+        </div>
+
+        <h2>Density from a Unit Cell</h2>
+        <p>If you know the edge length $a$, the atoms per cell, and the molar mass, you can calculate the density: mass of one cell divided by its volume.</p>
+        <div class="example">
+            <strong>Example:</strong> Copper is FCC with edge length $a = 361$ pm and molar mass 63.55 g/mol. Cell volume: $V = a^3 = (3.61 \times 10^{-8}\ \text{cm})^3 = 4.70 \times 10^{-23}\ \text{cm}^3$. Mass of one cell (4 atoms):
+            $$m = \frac{4 \times 63.55\ \text{g/mol}}{6.022 \times 10^{23}\ \text{atoms/mol}} = 4.22 \times 10^{-22}\ \text{g}$$
+            $$\text{Density} = \frac{4.22 \times 10^{-22}\ \text{g}}{4.70 \times 10^{-23}\ \text{cm}^3} = 8.97\ \text{g/cm}^3$$
+            This matches the accepted density of copper, 8.96 g/cm<sup>3</sup> (the small difference is rounding in the edge length).
+        </div>
+
+        <h2>Types of Solids</h2>
+        <ul>
+            <li><strong>Metallic:</strong> metal cations in a sea of delocalized electrons — e.g., Cu, Fe, Al. Conduct electricity and heat, malleable and ductile, usually high melting points.</li>
+            <li><strong>Ionic:</strong> cations and anions held by electrostatic attraction — e.g., NaCl, MgO. Hard and brittle, high melting points, conduct only when molten or dissolved.</li>
+            <li><strong>Covalent network:</strong> atoms joined by a continuous network of covalent bonds — e.g., diamond, quartz (SiO<sub>2</sub>), graphite. Extremely hard, very high melting points; graphite conducts along its layers.</li>
+            <li><strong>Molecular:</strong> discrete molecules held by intermolecular forces — e.g., ice (H<sub>2</sub>O), dry ice (CO<sub>2</sub>), I<sub>2</sub>. Soft, low melting points, poor conductors.</li>
+        </ul>
+
+        <h2>Phase Diagrams</h2>
+        <p>A phase diagram maps which phase (solid, liquid, gas) is stable at each combination of temperature and pressure. Two points matter most:</p>
+        <ul>
+            <li><strong>Triple point:</strong> the one temperature and pressure where solid, liquid, and gas all coexist in equilibrium.</li>
+            <li><strong>Critical point:</strong> above this temperature and pressure, the liquid–gas boundary vanishes — the substance becomes a supercritical fluid, with no distinct liquid or gas phase.</li>
+        </ul>
+        <p>For carbon dioxide, the triple point is 5.11 atm and &minus;56.6 &deg;C, and the critical point is 73 atm and 31.1 &deg;C. Because the triple-point pressure is above 1 atm, liquid CO<sub>2</sub> cannot exist at ordinary pressure — dry ice sublimes directly to gas at &minus;78.5 &deg;C. For water, the critical point is 218 atm and 374 &deg;C, and its triple point is 0.006 atm (4.58 torr) and 0.01 &deg;C. Water is unusual in another way: the solid–liquid boundary slopes backwards, so ice is less dense than liquid water — which is why ice floats.</p>
+
+        <h2>Practice Problems</h2>
+        <ol>
+            <li>Polonium is simple cubic with edge length 335 pm. What is the atomic radius of polonium? Calculate its density (M = 209 g/mol).</li>
+            <li>Iron is BCC with edge length 287 pm. Calculate its density (M = 55.85 g/mol).</li>
+            <li>How many atoms are in an FCC unit cell, and what is the coordination number of each atom?</li>
+            <li>Explain why dry ice (solid CO<sub>2</sub>) sublimes at 1 atm instead of melting, using CO<sub>2</sub>'s triple point of 5.11 atm.</li>
+        </ol>
+        <p><strong>Answers:</strong> 1. r = 167.5 pm; density &asymp; 9.23 g/cm<sup>3</sup> &nbsp; 2. &asymp; 7.85 g/cm<sup>3</sup> &nbsp; 3. 4 atoms per cell; coordination number 12 &nbsp; 4. At 1 atm the pressure is below the triple-point pressure (5.11 atm), so no liquid phase exists — solid goes straight to gas</p>
+        <div class="site-footer">
+            ChemistNate &bull; Released to the <strong>Public Domain</strong>. Feel free to use, share, and build upon these educational resources freely.
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

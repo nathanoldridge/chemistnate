@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChemistNate - Periodic Table</title>
+
+    <!-- KaTeX for rendering chemical formulas and equations -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ]
+        });">
+    </script>
+
+    <style>
+        /* Classic Lamar University / Paul's Notes color palette and typography */
+        body {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Layout Container */
+        #container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Left Sidebar Navigation */
+        #sidebar {
+            width: 260px;
+            background-color: #f4f4f4;
+            border-right: 1px solid #cccccc;
+            padding: 20px 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        #sidebar h2 {
+            font-size: 16px;
+            color: #8b0000; /* Academic maroon accent */
+            margin-top: 0;
+            border-bottom: 2px solid #8b0000;
+            padding-bottom: 5px;
+        }
+
+        #sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        #sidebar li {
+            margin-bottom: 8px;
+        }
+
+        #sidebar li ul {
+            padding-left: 15px;
+            margin-top: 5px;
+        }
+
+        #sidebar a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        #sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        #sidebar .active {
+            font-weight: bold;
+            color: #000000;
+        }
+
+        /* Main Content Pane */
+        #content {
+            flex-grow: 1;
+            padding: 30px 40px;
+            max-width: 800px;
+            box-sizing: border-box;
+        }
+
+        /* Header / Breadcrumbs */
+        .breadcrumbs {
+            font-size: 13px;
+            color: #555555;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumbs a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        h1 {
+            font-family: "Georgia", Times, serif;
+            color: #8b0000;
+            font-size: 28px;
+            margin-top: 0;
+            border-bottom: 1px solid #dddddd;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-family: "Georgia", Times, serif;
+            color: #333333;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+
+        /* Course Directory Grid / List */
+        .course-card {
+            background-color: #f9f9f9;
+            border: 1px solid #cccccc;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+
+        .course-card h3 {
+            font-family: "Georgia", Times, serif;
+            color: #004b87;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .course-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .course-card li {
+            margin-bottom: 5px;
+        }
+
+        /* Callout Box */
+        .notice-box {
+            background-color: #fffdf0;
+            border-left: 4px solid #d4af37;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 50px;
+            border-top: 1px solid #cccccc;
+            padding-top: 15px;
+            font-size: 12px;
+            color: #666666;
+            text-align: center;
+        }
+            /* Worked Example Callout */
+        .example {
+            background-color: #f9f9f9;
+            border-left: 4px solid #004b87;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+        .example strong:first-child { color: #004b87; }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <!-- Left Navigation Sidebar -->
+    <div id="sidebar">
+        <h2>ChemistNate</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sch3u.html">SCH3U — Grade 11 Chemistry (Ontario)</a></li>
+            <li><a href="sch4u.html">SCH4U — Grade 12 Chemistry (Ontario)</a></li>
+            <li><a href="#">General Chemistry I</a>
+                <ul>
+                    <li><a href="matter-measurement.html">Foundations: Matter and Measurement</a></li>
+                    <li><a href="stoichiometry.html">1. Stoichiometry</a></li>
+                    <li><a href="aqueous-reactions.html">2. Aqueous Reactions</a></li>
+                    <li><a href="#">3. Chemical Equations</a>
+                        <ul>
+                            <li><a href="balancing-equations.html">3.1 Balancing Equations</a></li>
+                            <li><a href="synthesis-reactions.html">3.2 Synthesis Reactions</a></li>
+                            <li><a href="decomposition-reactions.html">3.3 Decomposition Reactions</a></li>
+                            <li><a href="combustion-reactions.html">3.4 Combustion Reactions</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="redox-reactions.html">Redox Reactions</a></li>
+                    <li><a href="thermochemistry.html">4. Thermochemistry</a></li>
+                    <li><a href="atomic-structure.html">5. Atomic Structure</a></li>
+                    <li><a href="electronic-structure.html">6. Electronic Structure &amp; Periodic Trends</a></li>
+                    <li><a href="chemical-bonding.html">7. Chemical Bonding &amp; Molecular Geometry</a></li>
+                    <li><a href="molecular-orbital-theory.html">Molecular Orbital Theory</a></li>
+                    <li><a href="inorganic-nomenclature.html">Inorganic Nomenclature</a></li>
+                    <li><a href="gases.html">8. Gases</a></li>
+                    <li><a href="liquids-solids.html">9. Liquids, Solids &amp; Intermolecular Forces</a></li>
+                    <li><a href="solids-crystal-structures.html">Solids and Crystal Structures</a></li>
+                    <li><a href="solutions-colligative.html">10. Solutions &amp; Colligative Properties</a></li>
+                    <li><a href="solutions-advanced.html">Solutions: Advanced Topics</a></li>
+                    <li><a href="atmospheric-chemistry.html">11. Gases &amp; Atmospheric Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">General Chemistry II</a>
+                <ul>
+                    <li><a href="kinetics.html">1. Reaction Kinetics &amp; Rate Laws</a></li>
+                    <li><a href="reaction-mechanisms.html">Reaction Mechanisms and Catalysis</a></li>
+                    <li><a href="equilibrium.html">2. Chemical Equilibrium</a></li>
+                    <li><a href="acids-bases.html">3. Acids, Bases, and Buffers</a></li>
+                    <li><a href="acid-base-titrations.html">Acid–Base Titrations</a></li>
+                    <li><a href="electrochemistry.html">4. Electrochemistry &amp; Redox Cells</a></li>
+                    <li><a href="thermodynamics.html">5. Thermodynamics</a></li>
+                    <li><a href="solubility-ksp.html">6. Solubility &amp; the Solubility Product</a></li>
+                    <li><a href="nuclear-chemistry.html">7. Nuclear Chemistry</a></li>
+                    <li><a href="coordination-chemistry.html">8. Coordination Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry I</a>
+                <ul>
+                    <li><a href="nomenclature.html">1. Nomenclature &amp; Functional Groups</a></li>
+                    <li><a href="stereochemistry.html">2. Stereochemistry &amp; Isomerism</a></li>
+                    <li><a href="substitution-elimination.html">3. Substitution and Elimination</a></li>
+                    <li><a href="organic-structure.html">4. Structure &amp; Bonding in Organic Molecules</a></li>
+                    <li><a href="alkenes.html">5. Alkenes</a></li>
+                    <li><a href="alkynes.html">6. Alkynes</a></li>
+                    <li><a href="alcohols-ethers.html">7. Alcohols &amp; Ethers</a></li>
+                    <li><a href="spectroscopy.html">8. Spectroscopy</a></li>
+                    <li><a href="polymers.html">9. Polymers</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry II</a>
+                <ul>
+                    <li><a href="aromatic-chemistry.html">1. Aromatic Chemistry</a></li>
+                    <li><a href="aldehydes-ketones.html">2. Aldehydes &amp; Ketones</a></li>
+                    <li><a href="carboxylic-acids.html">3. Carboxylic Acids &amp; Derivatives</a></li>
+                    <li><a href="enolates-aldol.html">4. Enolates &amp; the Aldol Reaction</a></li>
+                    <li><a href="amines.html">5. Amines</a></li>
+                    <li><a href="conjugated-systems.html">6. Conjugated Systems &amp; Diels-Alder</a></li>
+                    <li><a href="biomolecules.html">7. Biomolecules</a></li>
+                    <li><a href="synthesis-strategy.html">8. Synthesis Strategy &amp; Retrosynthesis</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Reference</a>
+                <ul>
+                    <li><a href="formula-sheet.html">Formula Sheet</a></li>
+                    <li><a href="periodic-table.html" class="active">Periodic Table</a></li>
+                    <li><a href="chemistnate-explains.html">ChemistNate Explains</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="content">
+        <div class="breadcrumbs">
+            Home / Reference / Periodic Table
+        </div>
+
+        <h1>Periodic Table</h1>
+
+
+        <style>
+        .pt-grid { display: grid; grid-template-columns: repeat(18, 1fr); grid-template-rows: repeat(10, 54px); gap: 3px; margin: 15px 0; }
+        .pt-cell { border: 1px solid #999999; border-radius: 3px; padding: 2px 1px; text-align: center; cursor: pointer; overflow: hidden; }
+        .pt-cell:hover { outline: 2px solid #8b0000; }
+        .pt-cell .pt-num { display: block; font-size: 8px; line-height: 1.1; }
+        .pt-cell .pt-sym { display: block; font-size: 13px; font-weight: bold; line-height: 1.2; }
+        .pt-cell .pt-name { display: block; font-size: 7px; line-height: 1.1; white-space: nowrap; }
+        .pt-legend { margin: 10px 0; font-size: 13px; }
+        .pt-legend span { display: inline-block; padding: 3px 8px; margin: 2px; border: 1px solid #999999; border-radius: 3px; }
+        .pt-details { background-color: #f9f9f9; border-left: 4px solid #004b87; padding: 12px 15px; margin: 15px 0; min-height: 60px; }
+        </style>
+        <p>The periodic table: 118 elements, coloured by category. Click any element to see its details. Atomic masses are standard atomic weights; values in square brackets are the mass number of the most stable isotope.</p>
+
+        <div class="pt-legend">
+            <span style="background-color: #f5b7b1;">Alkali metal</span>
+            <span style="background-color: #fad7a0;">Alkaline earth metal</span>
+            <span style="background-color: #aed6f1;">Transition metal</span>
+            <span style="background-color: #a9dfbf;">Post-transition metal</span>
+            <span style="background-color: #f9e79f;">Metalloid</span>
+            <span style="background-color: #d2b4de;">Nonmetal</span>
+            <span style="background-color: #a3e4d7;">Halogen</span>
+            <span style="background-color: #d5dbdb;">Noble gas</span>
+            <span style="background-color: #f0b27a;">Lanthanide</span>
+            <span style="background-color: #e59866;">Actinide</span>
+        </div>
+
+        <div class="pt-grid" id="ptable"></div>
+
+        <div class="pt-details" id="ptdetails"><strong>Click an element</strong> to see its name, atomic number, atomic mass, and category.</div>
+
+        <script>
+        var ELEMENTS = [
+        [1,"H","Hydrogen","1.008","nonmetal",1,1],
+        [2,"He","Helium","4.003","noble",1,18],
+        [3,"Li","Lithium","6.94","alkali",2,1],
+        [4,"Be","Beryllium","9.012","alkaline",2,2],
+        [5,"B","Boron","10.81","metalloid",2,13],
+        [6,"C","Carbon","12.011","nonmetal",2,14],
+        [7,"N","Nitrogen","14.007","nonmetal",2,15],
+        [8,"O","Oxygen","15.999","nonmetal",2,16],
+        [9,"F","Fluorine","18.998","halogen",2,17],
+        [10,"Ne","Neon","20.180","noble",2,18],
+        [11,"Na","Sodium","22.990","alkali",3,1],
+        [12,"Mg","Magnesium","24.305","alkaline",3,2],
+        [13,"Al","Aluminium","26.982","post-transition",3,13],
+        [14,"Si","Silicon","28.085","metalloid",3,14],
+        [15,"P","Phosphorus","30.974","nonmetal",3,15],
+        [16,"S","Sulfur","32.06","nonmetal",3,16],
+        [17,"Cl","Chlorine","35.45","halogen",3,17],
+        [18,"Ar","Argon","39.948","noble",3,18],
+        [19,"K","Potassium","39.098","alkali",4,1],
+        [20,"Ca","Calcium","40.078","alkaline",4,2],
+        [21,"Sc","Scandium","44.956","transition",4,3],
+        [22,"Ti","Titanium","47.867","transition",4,4],
+        [23,"V","Vanadium","50.942","transition",4,5],
+        [24,"Cr","Chromium","51.996","transition",4,6],
+        [25,"Mn","Manganese","54.938","transition",4,7],
+        [26,"Fe","Iron","55.845","transition",4,8],
+        [27,"Co","Cobalt","58.933","transition",4,9],
+        [28,"Ni","Nickel","58.693","transition",4,10],
+        [29,"Cu","Copper","63.546","transition",4,11],
+        [30,"Zn","Zinc","65.38","transition",4,12],
+        [31,"Ga","Gallium","69.723","post-transition",4,13],
+        [32,"Ge","Germanium","72.630","metalloid",4,14],
+        [33,"As","Arsenic","74.922","metalloid",4,15],
+        [34,"Se","Selenium","78.971","nonmetal",4,16],
+        [35,"Br","Bromine","79.904","halogen",4,17],
+        [36,"Kr","Krypton","83.798","noble",4,18],
+        [37,"Rb","Rubidium","85.468","alkali",5,1],
+        [38,"Sr","Strontium","87.62","alkaline",5,2],
+        [39,"Y","Yttrium","88.906","transition",5,3],
+        [40,"Zr","Zirconium","91.224","transition",5,4],
+        [41,"Nb","Niobium","92.906","transition",5,5],
+        [42,"Mo","Molybdenum","95.95","transition",5,6],
+        [43,"Tc","Technetium","[98]","transition",5,7],
+        [44,"Ru","Ruthenium","101.07","transition",5,8],
+        [45,"Rh","Rhodium","102.91","transition",5,9],
+        [46,"Pd","Palladium","106.42","transition",5,10],
+        [47,"Ag","Silver","107.87","transition",5,11],
+        [48,"Cd","Cadmium","112.41","transition",5,12],
+        [49,"In","Indium","114.82","post-transition",5,13],
+        [50,"Sn","Tin","118.71","post-transition",5,14],
+        [51,"Sb","Antimony","121.76","metalloid",5,15],
+        [52,"Te","Tellurium","127.60","metalloid",5,16],
+        [53,"I","Iodine","126.90","halogen",5,17],
+        [54,"Xe","Xenon","131.29","noble",5,18],
+        [55,"Cs","Caesium","132.91","alkali",6,1],
+        [56,"Ba","Barium","137.33","alkaline",6,2],
+        [57,"La","Lanthanum","138.91","lanthanide",6,3],
+        [58,"Ce","Cerium","140.12","lanthanide",9,4],
+        [59,"Pr","Praseodymium","140.91","lanthanide",9,5],
+        [60,"Nd","Neodymium","144.24","lanthanide",9,6],
+        [61,"Pm","Promethium","[145]","lanthanide",9,7],
+        [62,"Sm","Samarium","150.36","lanthanide",9,8],
+        [63,"Eu","Europium","151.96","lanthanide",9,9],
+        [64,"Gd","Gadolinium","157.25","lanthanide",9,10],
+        [65,"Tb","Terbium","158.93","lanthanide",9,11],
+        [66,"Dy","Dysprosium","162.50","lanthanide",9,12],
+        [67,"Ho","Holmium","164.93","lanthanide",9,13],
+        [68,"Er","Erbium","167.26","lanthanide",9,14],
+        [69,"Tm","Thulium","168.93","lanthanide",9,15],
+        [70,"Yb","Ytterbium","173.05","lanthanide",9,16],
+        [71,"Lu","Lutetium","174.97","lanthanide",9,17],
+        [72,"Hf","Hafnium","178.49","transition",6,4],
+        [73,"Ta","Tantalum","180.95","transition",6,5],
+        [74,"W","Tungsten","183.84","transition",6,6],
+        [75,"Re","Rhenium","186.21","transition",6,7],
+        [76,"Os","Osmium","190.23","transition",6,8],
+        [77,"Ir","Iridium","192.22","transition",6,9],
+        [78,"Pt","Platinum","195.08","transition",6,10],
+        [79,"Au","Gold","196.97","transition",6,11],
+        [80,"Hg","Mercury","200.59","transition",6,12],
+        [81,"Tl","Thallium","204.38","post-transition",6,13],
+        [82,"Pb","Lead","207.2","post-transition",6,14],
+        [83,"Bi","Bismuth","208.98","post-transition",6,15],
+        [84,"Po","Polonium","[209]","post-transition",6,16],
+        [85,"At","Astatine","[210]","halogen",6,17],
+        [86,"Rn","Radon","[222]","noble",6,18],
+        [87,"Fr","Francium","[223]","alkali",7,1],
+        [88,"Ra","Radium","[226]","alkaline",7,2],
+        [89,"Ac","Actinium","[227]","actinide",7,3],
+        [90,"Th","Thorium","232.04","actinide",10,4],
+        [91,"Pa","Protactinium","231.04","actinide",10,5],
+        [92,"U","Uranium","238.03","actinide",10,6],
+        [93,"Np","Neptunium","[237]","actinide",10,7],
+        [94,"Pu","Plutonium","[244]","actinide",10,8],
+        [95,"Am","Americium","[243]","actinide",10,9],
+        [96,"Cm","Curium","[247]","actinide",10,10],
+        [97,"Bk","Berkelium","[247]","actinide",10,11],
+        [98,"Cf","Californium","[251]","actinide",10,12],
+        [99,"Es","Einsteinium","[252]","actinide",10,13],
+        [100,"Fm","Fermium","[257]","actinide",10,14],
+        [101,"Md","Mendelevium","[258]","actinide",10,15],
+        [102,"No","Nobelium","[259]","actinide",10,16],
+        [103,"Lr","Lawrencium","[266]","actinide",10,17],
+        [104,"Rf","Rutherfordium","[267]","transition",7,4],
+        [105,"Db","Dubnium","[268]","transition",7,5],
+        [106,"Sg","Seaborgium","[269]","transition",7,6],
+        [107,"Bh","Bohrium","[270]","transition",7,7],
+        [108,"Hs","Hassium","[277]","transition",7,8],
+        [109,"Mt","Meitnerium","[278]","transition",7,9],
+        [110,"Ds","Darmstadtium","[281]","transition",7,10],
+        [111,"Rg","Roentgenium","[282]","transition",7,11],
+        [112,"Cn","Copernicium","[285]","transition",7,12],
+        [113,"Nh","Nihonium","[286]","post-transition",7,13],
+        [114,"Fl","Flerovium","[289]","post-transition",7,14],
+        [115,"Mc","Moscovium","[290]","post-transition",7,15],
+        [116,"Lv","Livermorium","[293]","post-transition",7,16],
+        [117,"Ts","Tennessine","[294]","halogen",7,17],
+        [118,"Og","Oganesson","[294]","noble",7,18]
+        ];
+        var CATNAMES = {"alkali":"Alkali metal","alkaline":"Alkaline earth metal","transition":"Transition metal","post-transition":"Post-transition metal","metalloid":"Metalloid","nonmetal":"Nonmetal","halogen":"Halogen","noble":"Noble gas","lanthanide":"Lanthanide","actinide":"Actinide"};
+        var CATCOLORS = {"alkali":"#f5b7b1","alkaline":"#fad7a0","transition":"#aed6f1","post-transition":"#a9dfbf","metalloid":"#f9e79f","nonmetal":"#d2b4de","halogen":"#a3e4d7","noble":"#d5dbdb","lanthanide":"#f0b27a","actinide":"#e59866"};
+        (function () {
+          var grid = document.getElementById("ptable");
+          var details = document.getElementById("ptdetails");
+          ELEMENTS.forEach(function (el) {
+            var cell = document.createElement("div");
+            cell.className = "pt-cell";
+            cell.style.backgroundColor = CATCOLORS[el[4]];
+            cell.style.gridColumnStart = el[6];
+            cell.style.gridRowStart = el[5];
+            cell.innerHTML = '<span class="pt-num">' + el[0] + '</span><span class="pt-sym">' + el[1] + '</span><span class="pt-name">' + el[2] + '</span>';
+            cell.onclick = function () {
+              details.innerHTML = "<strong>" + el[2] + " (" + el[1] + ")</strong><br>Atomic number: " + el[0] + " &nbsp;|&nbsp; Atomic mass: " + el[3] + " amu &nbsp;|&nbsp; Category: " + CATNAMES[el[4]] + " &nbsp;|&nbsp; Period " + (el[5] <= 7 ? el[5] : (el[5] === 9 ? "6 (lanthanide)" : "7 (actinide)")) + ", Group " + el[6];
+            };
+            grid.appendChild(cell);
+          });
+        })();
+        </script>
+
+        <div class="site-footer">
+            ChemistNate &bull; Released to the <strong>Public Domain</strong>. Feel free to use, share, and build upon these educational resources freely.
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

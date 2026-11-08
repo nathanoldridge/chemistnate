@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChemistNate - Inorganic Nomenclature</title>
+
+    <!-- KaTeX for rendering chemical formulas and equations -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ]
+        });">
+    </script>
+
+    <style>
+        /* Classic Lamar University / Paul's Notes color palette and typography */
+        body {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Layout Container */
+        #container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Left Sidebar Navigation */
+        #sidebar {
+            width: 260px;
+            background-color: #f4f4f4;
+            border-right: 1px solid #cccccc;
+            padding: 20px 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        #sidebar h2 {
+            font-size: 16px;
+            color: #8b0000; /* Academic maroon accent */
+            margin-top: 0;
+            border-bottom: 2px solid #8b0000;
+            padding-bottom: 5px;
+        }
+
+        #sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        #sidebar li {
+            margin-bottom: 8px;
+        }
+
+        #sidebar li ul {
+            padding-left: 15px;
+            margin-top: 5px;
+        }
+
+        #sidebar a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        #sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        #sidebar .active {
+            font-weight: bold;
+            color: #000000;
+        }
+
+        /* Main Content Pane */
+        #content {
+            flex-grow: 1;
+            padding: 30px 40px;
+            max-width: 800px;
+            box-sizing: border-box;
+        }
+
+        /* Header / Breadcrumbs */
+        .breadcrumbs {
+            font-size: 13px;
+            color: #555555;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumbs a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        h1 {
+            font-family: "Georgia", Times, serif;
+            color: #8b0000;
+            font-size: 28px;
+            margin-top: 0;
+            border-bottom: 1px solid #dddddd;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-family: "Georgia", Times, serif;
+            color: #333333;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+
+        /* Course Directory Grid / List */
+        .course-card {
+            background-color: #f9f9f9;
+            border: 1px solid #cccccc;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+
+        .course-card h3 {
+            font-family: "Georgia", Times, serif;
+            color: #004b87;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .course-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .course-card li {
+            margin-bottom: 5px;
+        }
+
+        /* Callout Box */
+        .notice-box {
+            background-color: #fffdf0;
+            border-left: 4px solid #d4af37;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 50px;
+            border-top: 1px solid #cccccc;
+            padding-top: 15px;
+            font-size: 12px;
+            color: #666666;
+            text-align: center;
+        }
+            /* Worked Example Callout */
+        .example {
+            background-color: #f9f9f9;
+            border-left: 4px solid #004b87;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+        .example strong:first-child { color: #004b87; }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <!-- Left Navigation Sidebar -->
+    <div id="sidebar">
+        <h2>ChemistNate</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sch3u.html">SCH3U — Grade 11 Chemistry (Ontario)</a></li>
+            <li><a href="sch4u.html">SCH4U — Grade 12 Chemistry (Ontario)</a></li>
+            <li><a href="#">General Chemistry I</a>
+                <ul>
+                    <li><a href="matter-measurement.html">Foundations: Matter and Measurement</a></li>
+                    <li><a href="stoichiometry.html">1. Stoichiometry</a></li>
+                    <li><a href="aqueous-reactions.html">2. Aqueous Reactions</a></li>
+                    <li><a href="#">3. Chemical Equations</a>
+                        <ul>
+                            <li><a href="balancing-equations.html">3.1 Balancing Equations</a></li>
+                            <li><a href="synthesis-reactions.html">3.2 Synthesis Reactions</a></li>
+                            <li><a href="decomposition-reactions.html">3.3 Decomposition Reactions</a></li>
+                            <li><a href="combustion-reactions.html">3.4 Combustion Reactions</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="redox-reactions.html">Redox Reactions</a></li>
+                    <li><a href="thermochemistry.html">4. Thermochemistry</a></li>
+                    <li><a href="atomic-structure.html">5. Atomic Structure</a></li>
+                    <li><a href="electronic-structure.html">6. Electronic Structure &amp; Periodic Trends</a></li>
+                    <li><a href="chemical-bonding.html">7. Chemical Bonding &amp; Molecular Geometry</a></li>
+                    <li><a href="molecular-orbital-theory.html">Molecular Orbital Theory</a></li>
+                    <li><a href="inorganic-nomenclature.html" class="active">Inorganic Nomenclature</a></li>
+                    <li><a href="gases.html">8. Gases</a></li>
+                    <li><a href="liquids-solids.html">9. Liquids, Solids &amp; Intermolecular Forces</a></li>
+                    <li><a href="solids-crystal-structures.html">Solids and Crystal Structures</a></li>
+                    <li><a href="solutions-colligative.html">10. Solutions &amp; Colligative Properties</a></li>
+                    <li><a href="solutions-advanced.html">Solutions: Advanced Topics</a></li>
+                    <li><a href="atmospheric-chemistry.html">11. Gases &amp; Atmospheric Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">General Chemistry II</a>
+                <ul>
+                    <li><a href="kinetics.html">1. Reaction Kinetics &amp; Rate Laws</a></li>
+                    <li><a href="reaction-mechanisms.html">Reaction Mechanisms and Catalysis</a></li>
+                    <li><a href="equilibrium.html">2. Chemical Equilibrium</a></li>
+                    <li><a href="acids-bases.html">3. Acids, Bases, and Buffers</a></li>
+                    <li><a href="acid-base-titrations.html">Acid–Base Titrations</a></li>
+                    <li><a href="electrochemistry.html">4. Electrochemistry &amp; Redox Cells</a></li>
+                    <li><a href="thermodynamics.html">5. Thermodynamics</a></li>
+                    <li><a href="solubility-ksp.html">6. Solubility &amp; the Solubility Product</a></li>
+                    <li><a href="nuclear-chemistry.html">7. Nuclear Chemistry</a></li>
+                    <li><a href="coordination-chemistry.html">8. Coordination Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry I</a>
+                <ul>
+                    <li><a href="nomenclature.html">1. Nomenclature &amp; Functional Groups</a></li>
+                    <li><a href="stereochemistry.html">2. Stereochemistry &amp; Isomerism</a></li>
+                    <li><a href="substitution-elimination.html">3. Substitution and Elimination</a></li>
+                    <li><a href="organic-structure.html">4. Structure &amp; Bonding in Organic Molecules</a></li>
+                    <li><a href="alkenes.html">5. Alkenes</a></li>
+                    <li><a href="alkynes.html">6. Alkynes</a></li>
+                    <li><a href="alcohols-ethers.html">7. Alcohols &amp; Ethers</a></li>
+                    <li><a href="spectroscopy.html">8. Spectroscopy</a></li>
+                    <li><a href="polymers.html">9. Polymers</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry II</a>
+                <ul>
+                    <li><a href="aromatic-chemistry.html">1. Aromatic Chemistry</a></li>
+                    <li><a href="aldehydes-ketones.html">2. Aldehydes &amp; Ketones</a></li>
+                    <li><a href="carboxylic-acids.html">3. Carboxylic Acids &amp; Derivatives</a></li>
+                    <li><a href="enolates-aldol.html">4. Enolates &amp; the Aldol Reaction</a></li>
+                    <li><a href="amines.html">5. Amines</a></li>
+                    <li><a href="conjugated-systems.html">6. Conjugated Systems &amp; Diels-Alder</a></li>
+                    <li><a href="biomolecules.html">7. Biomolecules</a></li>
+                    <li><a href="synthesis-strategy.html">8. Synthesis Strategy &amp; Retrosynthesis</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Reference</a>
+                <ul>
+                    <li><a href="formula-sheet.html">Formula Sheet</a></li>
+                    <li><a href="periodic-table.html">Periodic Table</a></li>
+                    <li><a href="chemistnate-explains.html">ChemistNate Explains</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="content">
+        <div class="breadcrumbs">
+            Home / General Chemistry I / Inorganic Nomenclature
+        </div>
+
+        <h1>Inorganic Nomenclature</h1>
+
+
+        <p>Chemical names are a code: they tell you exactly what is in a compound and in what ratio. Learn the patterns once and you can name — or write the formula for — almost any inorganic compound.</p>
+
+        <h2>Ionic Compounds</h2>
+        <p>Name the cation first, then the anion. A monatomic cation keeps the element name (sodium, calcium); a monatomic anion takes the <strong>-ide</strong> ending (chloride, oxide, sulfide). NaCl is sodium chloride; MgO is magnesium oxide.</p>
+        <p>Metals that form more than one charge — most transition metals — need a Roman numeral for the charge: Fe<sup>2+</sup> is iron(II), Fe<sup>3+</sup> is iron(III). Find the charge from the anion: in FeCl<sub>3</sub>, three Cl<sup>−</sup> give −3, so iron is +3: <strong>iron(III) chloride</strong>. (The older -ous/-ic names, like ferrous and ferric, are no longer used.)</p>
+
+        <h2>Polyatomic Ions</h2>
+        <p>Memorize these — they appear everywhere:</p>
+        <ul>
+            <li>NH<sub>4</sub><sup>+</sup> ammonium, OH<sup>−</sup> hydroxide, CN<sup>−</sup> cyanide</li>
+            <li>NO<sub>3</sub><sup>−</sup> nitrate, NO<sub>2</sub><sup>−</sup> nitrite, CO<sub>3</sub><sup>2−</sup> carbonate, HCO<sub>3</sub><sup>−</sup> hydrogen carbonate (bicarbonate)</li>
+            <li>SO<sub>4</sub><sup>2−</sup> sulfate, SO<sub>3</sub><sup>2−</sup> sulfite, PO<sub>4</sub><sup>3−</sup> phosphate, ClO<sub>3</sub><sup>−</sup> chlorate, ClO<sub>4</sub><sup>−</sup> perchlorate, ClO<sup>−</sup> hypochlorite</li>
+            <li>CrO<sub>4</sub><sup>2−</sup> chromate, Cr<sub>2</sub>O<sub>7</sub><sup>2−</sup> dichromate, MnO<sub>4</sub><sup>−</sup> permanganate, C<sub>2</sub>H<sub>3</sub>O<sub>2</sub><sup>−</sup> acetate</li>
+        </ul>
+        <p>The <strong>-ate / -ite</strong> pattern: -ate is the more common, more oxygenated ion; -ite has one fewer oxygen. <strong>Per- -ate</strong> adds one more oxygen; <strong>hypo- -ite</strong> removes one. When a polyatomic ion needs a subscript, put it in parentheses: Ca(OH)<sub>2</sub>, Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub>.</p>
+        <div class="example">
+            <strong>Example:</strong> Name Fe<sub>2</sub>O<sub>3</sub>. Three O<sup>2−</sup> give −6, so the two irons must total +6: each iron is +3. The name is <strong>iron(III) oxide</strong>.
+        </div>
+        <div class="example">
+            <strong>Example:</strong> Write the formula for calcium phosphate. Ca<sup>2+</sup> and PO<sub>4</sub><sup>3−</sup> must balance to zero: the lowest common multiple of 2 and 3 is 6, so three Ca<sup>2+</sup> (+6) and two PO<sub>4</sub><sup>3−</sup> (−6): $$\text{Ca}_3(\text{PO}_4)_2$$
+        </div>
+
+        <h2>Molecular (Covalent) Compounds</h2>
+        <p>Two nonmetals share electrons, and the name uses Greek prefixes to give the numbers: mono- (1), di- (2), tri- (3), tetra- (4), penta- (5), hexa- (6), hepta- (7), octa- (8), nona- (9), deca- (10). The first element usually drops mono-; the second element always takes -ide. CO is carbon monoxide, CO<sub>2</sub> is carbon dioxide, PCl<sub>5</sub> is phosphorus pentachloride.</p>
+        <div class="example">
+            <strong>Example:</strong> N<sub>2</sub>O<sub>5</sub> — two nitrogens, five oxygens: <strong>dinitrogen pentoxide</strong>.
+        </div>
+
+        <h2>Acids</h2>
+        <p><strong>Binary acids</strong> (hydrogen + one other element) take <strong>hydro- -ic acid</strong>: HCl is hydrochloric acid, HBr is hydrobromic acid, H<sub>2</sub>S is hydrosulfuric acid.</p>
+        <p><strong>Oxoacids</strong> (hydrogen + a polyatomic ion with oxygen) follow the ion: an <strong>-ate</strong> ion gives an <strong>-ic acid</strong>, an <strong>-ite</strong> ion gives an <strong>-ous acid</strong>. H<sub>2</sub>SO<sub>4</sub> (sulfate) is <strong>sulfuric acid</strong>, H<sub>2</sub>SO<sub>3</sub> (sulfite) is sulfurous acid, HNO<sub>3</sub> (nitrate) is <strong>nitric acid</strong>, HNO<sub>2</sub> (nitrite) is nitrous acid, HClO<sub>4</sub> (perchlorate) is perchloric acid.</p>
+        <div class="example">
+            <strong>Example:</strong> H<sub>3</sub>PO<sub>4</sub> contains the phosphate ion, PO<sub>4</sub><sup>3−</sup> — an -ate ion, so the acid is <strong>phosphoric acid</strong>.
+        </div>
+
+        <h2>Hydrates</h2>
+        <p>A hydrate is an ionic compound with water molecules locked into its crystal. Name the compound, then add a prefix + "hydrate" for the waters, joined with a dot in the formula: CuSO<sub>4</sub>·5H<sub>2</sub>O is <strong>copper(II) sulfate pentahydrate</strong>. Others: Na<sub>2</sub>CO<sub>3</sub>·10H<sub>2</sub>O is sodium carbonate decahydrate (washing soda); MgSO<sub>4</sub>·7H<sub>2</sub>O is magnesium sulfate heptahydrate (Epsom salts).</p>
+
+        <h2>Practice Problems</h2>
+        <ol>
+            <li>Name CuCl<sub>2</sub>.</li>
+            <li>Name SO<sub>3</sub>.</li>
+            <li>Write the formula for aluminum sulfate.</li>
+            <li>Name HClO<sub>4</sub>.</li>
+        </ol>
+        <p><strong>Answers:</strong> 1. Copper(II) chloride &nbsp; 2. Sulfur trioxide &nbsp; 3. Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> &nbsp; 4. Perchloric acid</p>
+        <div class="site-footer">
+            ChemistNate &bull; Released to the <strong>Public Domain</strong>. Feel free to use, share, and build upon these educational resources freely.
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

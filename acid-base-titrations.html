@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChemistNate - Acid–Base Titrations</title>
+
+    <!-- KaTeX for rendering chemical formulas and equations -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ]
+        });">
+    </script>
+
+    <style>
+        /* Classic Lamar University / Paul's Notes color palette and typography */
+        body {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Layout Container */
+        #container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Left Sidebar Navigation */
+        #sidebar {
+            width: 260px;
+            background-color: #f4f4f4;
+            border-right: 1px solid #cccccc;
+            padding: 20px 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        #sidebar h2 {
+            font-size: 16px;
+            color: #8b0000; /* Academic maroon accent */
+            margin-top: 0;
+            border-bottom: 2px solid #8b0000;
+            padding-bottom: 5px;
+        }
+
+        #sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        #sidebar li {
+            margin-bottom: 8px;
+        }
+
+        #sidebar li ul {
+            padding-left: 15px;
+            margin-top: 5px;
+        }
+
+        #sidebar a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        #sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        #sidebar .active {
+            font-weight: bold;
+            color: #000000;
+        }
+
+        /* Main Content Pane */
+        #content {
+            flex-grow: 1;
+            padding: 30px 40px;
+            max-width: 800px;
+            box-sizing: border-box;
+        }
+
+        /* Header / Breadcrumbs */
+        .breadcrumbs {
+            font-size: 13px;
+            color: #555555;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumbs a {
+            color: #004b87;
+            text-decoration: none;
+        }
+
+        h1 {
+            font-family: "Georgia", Times, serif;
+            color: #8b0000;
+            font-size: 28px;
+            margin-top: 0;
+            border-bottom: 1px solid #dddddd;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-family: "Georgia", Times, serif;
+            color: #333333;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+
+        /* Course Directory Grid / List */
+        .course-card {
+            background-color: #f9f9f9;
+            border: 1px solid #cccccc;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+
+        .course-card h3 {
+            font-family: "Georgia", Times, serif;
+            color: #004b87;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .course-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .course-card li {
+            margin-bottom: 5px;
+        }
+
+        /* Callout Box */
+        .notice-box {
+            background-color: #fffdf0;
+            border-left: 4px solid #d4af37;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 50px;
+            border-top: 1px solid #cccccc;
+            padding-top: 15px;
+            font-size: 12px;
+            color: #666666;
+            text-align: center;
+        }
+            /* Worked Example Callout */
+        .example {
+            background-color: #f9f9f9;
+            border-left: 4px solid #004b87;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+        .example strong:first-child { color: #004b87; }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <!-- Left Navigation Sidebar -->
+    <div id="sidebar">
+        <h2>ChemistNate</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sch3u.html">SCH3U — Grade 11 Chemistry (Ontario)</a></li>
+            <li><a href="sch4u.html">SCH4U — Grade 12 Chemistry (Ontario)</a></li>
+            <li><a href="#">General Chemistry I</a>
+                <ul>
+                    <li><a href="matter-measurement.html">Foundations: Matter and Measurement</a></li>
+                    <li><a href="stoichiometry.html">1. Stoichiometry</a></li>
+                    <li><a href="aqueous-reactions.html">2. Aqueous Reactions</a></li>
+                    <li><a href="#">3. Chemical Equations</a>
+                        <ul>
+                            <li><a href="balancing-equations.html">3.1 Balancing Equations</a></li>
+                            <li><a href="synthesis-reactions.html">3.2 Synthesis Reactions</a></li>
+                            <li><a href="decomposition-reactions.html">3.3 Decomposition Reactions</a></li>
+                            <li><a href="combustion-reactions.html">3.4 Combustion Reactions</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="redox-reactions.html">Redox Reactions</a></li>
+                    <li><a href="thermochemistry.html">4. Thermochemistry</a></li>
+                    <li><a href="atomic-structure.html">5. Atomic Structure</a></li>
+                    <li><a href="electronic-structure.html">6. Electronic Structure &amp; Periodic Trends</a></li>
+                    <li><a href="chemical-bonding.html">7. Chemical Bonding &amp; Molecular Geometry</a></li>
+                    <li><a href="molecular-orbital-theory.html">Molecular Orbital Theory</a></li>
+                    <li><a href="inorganic-nomenclature.html">Inorganic Nomenclature</a></li>
+                    <li><a href="gases.html">8. Gases</a></li>
+                    <li><a href="liquids-solids.html">9. Liquids, Solids &amp; Intermolecular Forces</a></li>
+                    <li><a href="solids-crystal-structures.html">Solids and Crystal Structures</a></li>
+                    <li><a href="solutions-colligative.html">10. Solutions &amp; Colligative Properties</a></li>
+                    <li><a href="solutions-advanced.html">Solutions: Advanced Topics</a></li>
+                    <li><a href="atmospheric-chemistry.html">11. Gases &amp; Atmospheric Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">General Chemistry II</a>
+                <ul>
+                    <li><a href="kinetics.html">1. Reaction Kinetics &amp; Rate Laws</a></li>
+                    <li><a href="reaction-mechanisms.html">Reaction Mechanisms and Catalysis</a></li>
+                    <li><a href="equilibrium.html">2. Chemical Equilibrium</a></li>
+                    <li><a href="acids-bases.html">3. Acids, Bases, and Buffers</a></li>
+                    <li><a href="acid-base-titrations.html" class="active">Acid–Base Titrations</a></li>
+                    <li><a href="electrochemistry.html">4. Electrochemistry &amp; Redox Cells</a></li>
+                    <li><a href="thermodynamics.html">5. Thermodynamics</a></li>
+                    <li><a href="solubility-ksp.html">6. Solubility &amp; the Solubility Product</a></li>
+                    <li><a href="nuclear-chemistry.html">7. Nuclear Chemistry</a></li>
+                    <li><a href="coordination-chemistry.html">8. Coordination Chemistry</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry I</a>
+                <ul>
+                    <li><a href="nomenclature.html">1. Nomenclature &amp; Functional Groups</a></li>
+                    <li><a href="stereochemistry.html">2. Stereochemistry &amp; Isomerism</a></li>
+                    <li><a href="substitution-elimination.html">3. Substitution and Elimination</a></li>
+                    <li><a href="organic-structure.html">4. Structure &amp; Bonding in Organic Molecules</a></li>
+                    <li><a href="alkenes.html">5. Alkenes</a></li>
+                    <li><a href="alkynes.html">6. Alkynes</a></li>
+                    <li><a href="alcohols-ethers.html">7. Alcohols &amp; Ethers</a></li>
+                    <li><a href="spectroscopy.html">8. Spectroscopy</a></li>
+                    <li><a href="polymers.html">9. Polymers</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Organic Chemistry II</a>
+                <ul>
+                    <li><a href="aromatic-chemistry.html">1. Aromatic Chemistry</a></li>
+                    <li><a href="aldehydes-ketones.html">2. Aldehydes &amp; Ketones</a></li>
+                    <li><a href="carboxylic-acids.html">3. Carboxylic Acids &amp; Derivatives</a></li>
+                    <li><a href="enolates-aldol.html">4. Enolates &amp; the Aldol Reaction</a></li>
+                    <li><a href="amines.html">5. Amines</a></li>
+                    <li><a href="conjugated-systems.html">6. Conjugated Systems &amp; Diels-Alder</a></li>
+                    <li><a href="biomolecules.html">7. Biomolecules</a></li>
+                    <li><a href="synthesis-strategy.html">8. Synthesis Strategy &amp; Retrosynthesis</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Reference</a>
+                <ul>
+                    <li><a href="formula-sheet.html">Formula Sheet</a></li>
+                    <li><a href="periodic-table.html">Periodic Table</a></li>
+                    <li><a href="chemistnate-explains.html">ChemistNate Explains</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="content">
+        <div class="breadcrumbs">
+            Home / General Chemistry II / Acid–Base Titrations
+        </div>
+
+        <h1>Acid–Base Titrations</h1>
+
+
+        <p>A titration is a controlled way to find the concentration of an unknown acid or base. You add a solution of known concentration (the <strong>titrant</strong>) from a burette, a little at a time, to a measured volume of the unknown (the <strong>analyte</strong>) until the reaction is complete.</p>
+
+        <h2>The Key Terms</h2>
+        <ul>
+            <li><strong>Equivalence point:</strong> the point where the moles of titrant added exactly equal the moles of analyte — the reaction is stoichiometrically complete.</li>
+            <li><strong>Endpoint:</strong> the point where the indicator changes colour. You want it as close to the equivalence point as possible.</li>
+            <li><strong>Indicator:</strong> a weak acid or base whose colour depends on pH, so it signals when you are near the equivalence point.</li>
+        </ul>
+        <p>At the equivalence point, $M_a V_a = M_b V_b$ for a 1:1 reaction — the moles of acid equal the moles of base.</p>
+
+        <h2>Strong Acid–Strong Base Titration</h2>
+        <p>Titrating HCl with NaOH gives the classic S-shaped curve. The pH starts low, rises slowly, then jumps sharply through the equivalence point, where the pH is exactly 7.00 — the solution contains only NaCl and water. After the equivalence point, excess OH<sup>−</sup> makes the pH climb toward that of the titrant.</p>
+        <div class="example">
+            <strong>Example:</strong> 25.0 mL of 0.100 M HCl titrated with 0.100 M NaOH. The HCl contains $25.0 \times 0.100 = 2.50$ mmol of H<sup>+</sup>.
+            <p>After adding 10.0 mL of NaOH (1.00 mmol of OH<sup>−</sup>), the remaining H<sup>+</sup> is $2.50 - 1.00 = 1.50$ mmol in a total volume of 35.0 mL:</p>
+            $$[\text{H}^+] = \frac{1.50\ \text{mmol}}{35.0\ \text{mL}} = 0.0429\ \text{M} \;\Rightarrow\; \text{pH} = -\log(0.0429) = 1.37$$
+            <p>At the equivalence point, 25.0 mL of NaOH has been added and the solution is neutral: pH = 7.00.</p>
+            <p>After adding 30.0 mL of NaOH, the excess OH<sup>−</sup> is $3.00 - 2.50 = 0.50$ mmol in 55.0 mL:</p>
+            $$[\text{OH}^-] = \frac{0.50\ \text{mmol}}{55.0\ \text{mL}} = 0.00909\ \text{M} \;\Rightarrow\; \text{pOH} = 2.04 \;\Rightarrow\; \text{pH} = 11.96$$
+        </div>
+
+        <h2>Weak Acid–Strong Base Titration</h2>
+        <p>Titrating acetic acid with NaOH looks different in two ways. First, the equivalence-point pH is <strong>above</strong> 7, because the conjugate base CH<sub>3</sub>COO<sup>−</sup> left behind reacts with water to make OH<sup>−</sup>. Second, the curve has a buffer region, and at the <strong>half-equivalence point</strong> — when exactly half the acid has been neutralized — $[\text{HA}] = [\text{A}^-]$ and the Henderson–Hasselbalch equation gives pH = p$K_a$.</p>
+        <div class="example">
+            <strong>Example:</strong> 25.0 mL of 0.100 M CH<sub>3</sub>COOH ($K_a = 1.8 \times 10^{-5}$) titrated with 0.100 M NaOH.
+            <p>At the half-equivalence point, 12.5 mL of NaOH has been added, so $[\text{HA}] = [\text{A}^-]$ and:</p>
+            $$\text{pH} = \text{p}K_a = -\log(1.8 \times 10^{-5}) = 4.74$$
+            <p>At the equivalence point, 25.0 mL of NaOH has been added. The solution is 0.0500 M CH<sub>3</sub>COO<sup>−</sup> (2.50 mmol in 50.0 mL), with $K_b = \frac{K_w}{K_a} = \frac{1.0 \times 10^{-14}}{1.8 \times 10^{-5}} = 5.6 \times 10^{-10}$:</p>
+            $$[\text{OH}^-] = \sqrt{K_b C} = \sqrt{(5.6 \times 10^{-10})(0.0500)} = 5.3 \times 10^{-6}\ \text{M} \;\Rightarrow\; \text{pOH} = 5.28 \;\Rightarrow\; \text{pH} = 8.72$$
+        </div>
+        <div class="notice-box">The half-equivalence point is a quick experimental way to measure p$K_a$: titrate, find the equivalence volume, then read the pH at half that volume — that pH <em>is</em> the p$K_a$.</div>
+
+        <h2>Choosing an Indicator</h2>
+        <p>Pick an indicator whose colour-change range brackets the equivalence-point pH. For a strong acid–strong base titration, almost any indicator works because the pH jumps several units with a single drop — phenolphthalein (8.2–10.0) is the usual choice. For a weak acid–strong base titration, you need an indicator that changes above pH 7, so phenolphthalein works but methyl orange (3.1–4.4) does not — it would change colour long before the equivalence point. For a weak base titrated with a strong acid, the equivalence pH is below 7, so methyl orange or methyl red is the right pick.</p>
+
+        <h2>Polyprotic Acids</h2>
+        <p>An acid with more than one acidic proton has one equivalence point per proton, and each step is weaker than the last. Phosphoric acid, H<sub>3</sub>PO<sub>4</sub>, has three equivalence points ($K_{a1} = 7.5 \times 10^{-3}$, $K_{a2} = 6.2 \times 10^{-8}$, $K_{a3} = 4.8 \times 10^{-13}$); the first jump is sharp, the second is smaller, and the third is usually too weak to see. Sulfuric acid, H<sub>2</sub>SO<sub>4</sub>, has two: the first proton is strong and the second is weak ($K_{a2} = 1.2 \times 10^{-2}$). Carbonic acid, H<sub>2</sub>CO<sub>3</sub>, also has two equivalence points, and its titration curve shows two distinct rises — the first near pH 8 (HCO<sub>3</sub><sup>−</sup> formed) and the second near pH 11 (CO<sub>3</sub><sup>2−</sup> formed) — which is why bicarbonate is such a useful buffer in blood.</p>
+
+        <h2>Practice Problems</h2>
+        <ol>
+            <li>What volume of 0.100 M NaOH is needed to neutralize 20.0 mL of 0.150 M HCl?</li>
+            <li>What is the pH after adding 5.0 mL of 0.100 M NaOH to 25.0 mL of 0.100 M HCl?</li>
+            <li>A weak acid has Ka = 4.0 &times; 10<sup>−5</sup>. What is the pH at its half-equivalence point when titrated with NaOH?</li>
+            <li>Which indicator is better for titrating acetic acid with NaOH: methyl orange (range 3.1–4.4) or phenolphthalein (range 8.2–10.0)? Explain.</li>
+        </ol>
+        <p><strong>Answers:</strong> 1. 30.0 mL &nbsp; 2. 1.18 &nbsp; 3. 4.40 &nbsp; 4. Phenolphthalein — the equivalence pH is above 7, inside its range; methyl orange would change colour far too early</p>
+        <div class="site-footer">
+            ChemistNate &bull; Released to the <strong>Public Domain</strong>. Feel free to use, share, and build upon these educational resources freely.
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
